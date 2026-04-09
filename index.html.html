@@ -1,0 +1,1833 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MSOL92 – L'Art du Parquet d'Exception | Levallois-Perret</title>
+  <meta name="description" content="MSOL92, artisan parqueteur expert à Levallois-Perret. Pose, rénovation, ponçage et vitrification de parquet en Île-de-France. Devis gratuit." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+  <style>
+    /* ===== RESET & BASE ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: 'Lato', sans-serif;
+      background: #F5F0E8;
+      color: #1A1A1A;
+      overflow-x: hidden;
+    }
+
+    /* ===== PREMIUM LOADER ===== */
+    .site-loader {
+      position: fixed;
+      inset: 0;
+      z-index: 99999;
+      background: #1A1A1A;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.6s ease, visibility 0.6s ease;
+    }
+    .site-loader.hidden {
+      opacity: 0;
+      visibility: hidden;
+    }
+    .loader-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.4rem;
+      color: #fff;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      margin-bottom: 32px;
+    }
+    .loader-logo span { color: #D4AF37; }
+    .loader-bar-track {
+      width: 200px;
+      height: 2px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+    .loader-bar-fill {
+      width: 0%;
+      height: 100%;
+      background: linear-gradient(90deg, #D4AF37, #C4956A);
+      transition: width 0.3s ease;
+    }
+
+    /* ===== GRAIN OVERLAY (subtle texture) ===== */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 9998;
+      opacity: 0.025;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-repeat: repeat;
+      background-size: 256px 256px;
+    }
+
+    /* ===== SMOOTH REVEAL TRANSITIONS ===== */
+    .reveal, .reveal-left, .reveal-right {
+      will-change: transform, opacity;
+    }
+    .reveal { transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1), transform 0.9s cubic-bezier(0.22, 1, 0.36, 1); }
+    .reveal-left { transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1), transform 0.9s cubic-bezier(0.22, 1, 0.36, 1); }
+    .reveal-right { transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1), transform 0.9s cubic-bezier(0.22, 1, 0.36, 1); }
+
+    /* ===== IMAGE PARALLAX HOVER ===== */
+    .passion-img-wrap img,
+    .about-img img {
+      transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .passion-img-wrap:hover img,
+    .about-img:hover img {
+      transform: scale(1.03);
+    }
+
+    /* ===== VARIABLES ===== */
+    :root {
+      --cream:   #F5F0E8;
+      --dark:    #1A1A1A;
+      --wood:    #8B6914;
+      --light-wood: #C4956A;
+      --gold:    #D4AF37;
+      --gold-light: #E8C84A;
+      --white:   #FFFFFF;
+      --gray:    #6B6B6B;
+      --light-gray: #E8E2D8;
+      --section-gap: 100px;
+    }
+
+    /* ===== TYPOGRAPHY ===== */
+    h1, h2, h3, h4 { font-family: 'Playfair Display', serif; line-height: 1.2; }
+    p { line-height: 1.8; color: var(--gray); }
+
+    /* ===== UTILITY ===== */
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    .section-label {
+      font-family: 'Lato', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: block;
+      margin-bottom: 16px;
+    }
+    .section-title {
+      font-size: clamp(2rem, 4vw, 3rem);
+      color: var(--dark);
+      margin-bottom: 20px;
+    }
+    .section-subtitle {
+      font-size: 1.05rem;
+      color: var(--gray);
+      max-width: 600px;
+      line-height: 1.8;
+    }
+    .gold-line {
+      display: block;
+      width: 60px;
+      height: 2px;
+      background: linear-gradient(90deg, var(--gold), var(--light-wood));
+      margin: 24px 0 40px;
+    }
+    .gold-line.center { margin-left: auto; margin-right: auto; }
+
+    /* ===== SCROLL REVEAL (enhanced) ===== */
+    .reveal { opacity: 0; transform: translateY(50px); }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-left { opacity: 0; transform: translateX(-50px); }
+    .reveal-left.visible { opacity: 1; transform: translateX(0); }
+    .reveal-right { opacity: 0; transform: translateX(50px); }
+    .reveal-right.visible { opacity: 1; transform: translateX(0); }
+
+    /* ===== NAVBAR ===== */
+    .navbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      padding: 20px 0;
+      transition: all 0.4s ease;
+    }
+    .navbar.scrolled {
+      background: rgba(26, 26, 26, 0.97);
+      backdrop-filter: blur(10px);
+      padding: 14px 0;
+      box-shadow: 0 2px 30px rgba(0,0,0,0.3);
+    }
+    .navbar .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--white);
+      text-decoration: none;
+      letter-spacing: 0.05em;
+    }
+    .logo span { color: var(--gold); }
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 36px;
+    }
+    .nav-links a {
+      font-family: 'Lato', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.8);
+      text-decoration: none;
+      transition: color 0.3s;
+      position: relative;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px; left: 0;
+      width: 0; height: 1px;
+      background: var(--gold);
+      transition: width 0.3s;
+    }
+    .nav-links a:hover { color: var(--gold); }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-cta {
+      background: var(--gold);
+      color: var(--dark) !important;
+      padding: 10px 24px;
+      border-radius: 2px;
+      font-weight: 700 !important;
+      letter-spacing: 0.1em;
+      transition: background 0.3s, transform 0.2s !important;
+    }
+    .nav-cta:hover { background: var(--gold-light) !important; transform: translateY(-1px); }
+    .nav-cta::after { display: none !important; }
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+    }
+    .hamburger span {
+      display: block;
+      width: 26px; height: 2px;
+      background: var(--white);
+      transition: all 0.3s;
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        position: fixed;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background: rgba(26,26,26,0.98);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 32px;
+        z-index: 999;
+      }
+      .nav-links.open { display: flex; }
+      .nav-links a { font-size: 1.2rem; }
+      .hamburger { display: flex; z-index: 1001; }
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      min-height: 100vh;
+      background:
+        linear-gradient(135deg, rgba(26,26,26,0.85) 0%, rgba(139,105,20,0.4) 100%),
+        url('images/ddp-kS1UuxzkuJE-unsplash.jpg') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at bottom left, rgba(212,175,55,0.15) 0%, transparent 60%);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding-top: 80px;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(212,175,55,0.15);
+      border: 1px solid rgba(212,175,55,0.4);
+      padding: 8px 20px;
+      margin-bottom: 32px;
+      border-radius: 2px;
+    }
+    .hero-badge span {
+      font-family: 'Lato', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .hero-badge::before {
+      content: '';
+      display: block;
+      width: 6px; height: 6px;
+      background: var(--gold);
+      border-radius: 50%;
+    }
+    .hero h1 {
+      font-size: clamp(2.8rem, 7vw, 5.5rem);
+      color: var(--white);
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 8px;
+    }
+    .hero h1 em {
+      font-style: italic;
+      color: var(--gold);
+    }
+    .hero-sub {
+      font-size: clamp(1.1rem, 2vw, 1.4rem);
+      color: rgba(255,255,255,0.75);
+      font-family: 'Lato', sans-serif;
+      font-weight: 300;
+      letter-spacing: 0.05em;
+      margin-bottom: 16px;
+    }
+    .hero-divider {
+      width: 80px; height: 1px;
+      background: linear-gradient(90deg, var(--gold), transparent);
+      margin: 28px 0;
+    }
+    .hero-desc {
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.65);
+      max-width: 520px;
+      margin-bottom: 44px;
+      line-height: 1.8;
+    }
+    .hero-actions { display: flex; gap: 20px; flex-wrap: wrap; align-items: center; }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--gold);
+      color: var(--dark);
+      font-family: 'Lato', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 18px 36px;
+      border-radius: 2px;
+      text-decoration: none;
+      transition: all 0.3s;
+      border: none;
+      cursor: pointer;
+    }
+    .btn-primary:hover {
+      background: var(--gold-light);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 40px rgba(212,175,55,0.35);
+    }
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--white);
+      font-family: 'Lato', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 18px 36px;
+      border-radius: 2px;
+      text-decoration: none;
+      border: 1px solid rgba(255,255,255,0.35);
+      transition: all 0.3s;
+    }
+    .btn-secondary:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+      transform: translateY(-2px);
+    }
+    .hero-scroll {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      animation: bounce 2s infinite;
+    }
+    .hero-scroll span {
+      font-family: 'Lato', sans-serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+    }
+    .hero-scroll svg { color: rgba(255,255,255,0.4); }
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(8px); }
+    }
+
+    /* ===== STATS ===== */
+    .stats {
+      background: var(--dark);
+      padding: 60px 0;
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: rgba(255,255,255,0.08);
+    }
+    .stat-item {
+      background: var(--dark);
+      padding: 44px 32px;
+      text-align: center;
+      position: relative;
+      transition: background 0.3s;
+    }
+    .stat-item:hover { background: #242424; }
+    .stat-number {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.5rem, 4vw, 3.5rem);
+      color: var(--gold);
+      font-weight: 700;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .stat-label {
+      font-family: 'Lato', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+    }
+    @media (max-width: 768px) {
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 480px) {
+      .stats-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ===== SERVICES ===== */
+    .services {
+      padding: var(--section-gap) 0;
+      position: relative;
+      background:
+        linear-gradient(180deg, rgba(245,240,232,0.55) 0%, rgba(245,240,232,0.50) 100%),
+        url('images/rendy-novantino-o6Vhfc6YcWg-unsplash.jpg') center/cover no-repeat;
+    }
+    .services-header { text-align: center; margin-bottom: 64px; }
+    .services-header .gold-line { margin-left: auto; margin-right: auto; }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+    .service-card {
+      background: var(--white);
+      border: 1px solid var(--light-gray);
+      padding: 40px 32px;
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .service-card::before {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 0; height: 3px;
+      background: linear-gradient(90deg, var(--gold), var(--light-wood));
+      transition: width 0.4s ease;
+    }
+    .service-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 24px 60px rgba(0,0,0,0.1);
+      border-color: transparent;
+    }
+    .service-card:hover::before { width: 100%; }
+    .service-icon {
+      width: 56px; height: 56px;
+      background: linear-gradient(135deg, var(--gold), var(--light-wood));
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 28px;
+      border-radius: 2px;
+      font-size: 1.4rem;
+    }
+    .service-card h3 {
+      font-size: 1.25rem;
+      margin-bottom: 14px;
+      color: var(--dark);
+    }
+    .service-card p {
+      font-size: 0.92rem;
+      line-height: 1.7;
+      margin-bottom: 24px;
+    }
+    .service-link {
+      font-family: 'Lato', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--wood);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: gap 0.3s;
+    }
+    .service-link:hover { gap: 14px; }
+    @media (max-width: 1024px) { .services-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 600px) { .services-grid { grid-template-columns: 1fr; } }
+
+    /* ===== PASSION SECTION ===== */
+    .passion {
+      padding: var(--section-gap) 0;
+      background: var(--dark);
+      position: relative;
+      overflow: hidden;
+    }
+    .passion::before {
+      content: '';
+      position: absolute;
+      top: -100px; right: -100px;
+      width: 500px; height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(212,175,55,0.07) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .passion-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .passion-visual {
+      position: relative;
+    }
+    .passion-img-wrap {
+      position: relative;
+      padding-bottom: 20px;
+      padding-right: 20px;
+      overflow: hidden;
+    }
+    .passion-img-wrap img {
+      width: 100%;
+      aspect-ratio: 4/5;
+      object-fit: cover;
+      display: block;
+    }
+    .passion-img-wrap::after {
+      content: '';
+      position: absolute;
+      bottom: 0; right: 0;
+      width: 80%; height: 80%;
+      border: 2px solid var(--gold);
+      opacity: 0.3;
+      z-index: 0;
+    }
+    .passion-badge {
+      position: absolute;
+      bottom: 30px; left: -20px;
+      background: var(--gold);
+      padding: 20px 28px;
+      z-index: 2;
+    }
+    .passion-badge .big { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; color: var(--dark); line-height: 1; }
+    .passion-badge .small { font-family: 'Lato', sans-serif; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(26,26,26,0.7); }
+    .passion-content .section-label { color: var(--gold); }
+    .passion-content .section-title { color: var(--white); }
+    .passion-content p { color: rgba(255,255,255,0.6); margin-bottom: 20px; }
+    .passion-features { list-style: none; margin: 32px 0 44px; display: flex; flex-direction: column; gap: 16px; }
+    .passion-features li {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      color: rgba(255,255,255,0.7);
+      font-family: 'Lato', sans-serif;
+      font-size: 0.95rem;
+    }
+    .passion-features li::before {
+      content: '';
+      flex-shrink: 0;
+      width: 20px; height: 20px;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%23D4AF37'%3E%3Cpath fill-rule='evenodd' d='M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z' clip-rule='evenodd'/%3E%3C/svg%3E") center/contain no-repeat;
+      margin-top: 2px;
+    }
+    @media (max-width: 900px) {
+      .passion-inner { grid-template-columns: 1fr; gap: 60px; }
+      .passion-visual { max-width: 500px; margin: 0 auto; }
+    }
+
+    /* ===== TESTIMONIALS ===== */
+    .testimonials {
+      padding: var(--section-gap) 0;
+      position: relative;
+      background:
+        linear-gradient(135deg, rgba(245,240,232,0.55) 0%, rgba(245,240,232,0.50) 100%),
+        url('images/patrick-robert-doyle-yVRn-d6JGzo-unsplash.jpg') center/cover no-repeat;
+    }
+    .testimonials-header { text-align: center; margin-bottom: 64px; }
+    .testimonials-header .gold-line { margin: 24px auto 0; }
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+    .testimonial-card {
+      background: var(--white);
+      border: 1px solid var(--light-gray);
+      padding: 36px 32px;
+      position: relative;
+      transition: box-shadow 0.3s;
+    }
+    .testimonial-card:hover { box-shadow: 0 16px 48px rgba(0,0,0,0.08); }
+    .quote-mark {
+      font-family: 'Playfair Display', serif;
+      font-size: 5rem;
+      line-height: 0.6;
+      color: var(--gold);
+      opacity: 0.3;
+      margin-bottom: 20px;
+      display: block;
+    }
+    .stars { display: flex; gap: 4px; margin-bottom: 16px; }
+    .star { color: var(--gold); font-size: 1rem; }
+    .testimonial-text {
+      font-size: 0.95rem;
+      line-height: 1.8;
+      color: var(--gray);
+      margin-bottom: 28px;
+      font-style: italic;
+    }
+    .testimonial-author { display: flex; align-items: center; gap: 14px; }
+    .author-avatar {
+      width: 46px; height: 46px;
+      background: linear-gradient(135deg, var(--gold), var(--light-wood));
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      color: var(--dark);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    .author-name {
+      font-family: 'Lato', sans-serif;
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: var(--dark);
+    }
+    .author-loc {
+      font-family: 'Lato', sans-serif;
+      font-size: 0.78rem;
+      color: var(--gray);
+      letter-spacing: 0.05em;
+    }
+    @media (max-width: 900px) { .testimonials-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 600px) { .testimonials-grid { grid-template-columns: 1fr; } }
+    .testi-extra { margin-top: 28px; }
+
+    /* ===== ZONES ===== */
+    .zones {
+      padding: var(--section-gap) 0;
+      background: var(--dark);
+    }
+    .zones-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .zones-content .section-title { color: var(--white); }
+    .zones-content p { color: rgba(255,255,255,0.6); margin-bottom: 36px; }
+    .zones-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 40px;
+    }
+    .zone-tag {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      padding: 12px 18px;
+      border-radius: 2px;
+      font-family: 'Lato', sans-serif;
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.75);
+      transition: all 0.3s;
+    }
+    .zone-tag:hover {
+      background: rgba(212,175,55,0.1);
+      border-color: rgba(212,175,55,0.3);
+      color: var(--gold);
+    }
+    .zone-tag::before { content: '📍'; font-size: 0.85rem; }
+    .zones-map {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      aspect-ratio: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .map-placeholder {
+      text-align: center;
+    }
+    .map-circle {
+      width: 260px; height: 260px;
+      border: 1px solid rgba(212,175,55,0.2);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      position: relative;
+    }
+    .map-circle::before {
+      content: '';
+      position: absolute;
+      width: 180px; height: 180px;
+      border: 1px solid rgba(212,175,55,0.15);
+      border-radius: 50%;
+    }
+    .map-circle::after {
+      content: '';
+      position: absolute;
+      width: 100px; height: 100px;
+      border: 1px solid rgba(212,175,55,0.1);
+      border-radius: 50%;
+    }
+    .map-dot {
+      width: 14px; height: 14px;
+      background: var(--gold);
+      border-radius: 50%;
+      box-shadow: 0 0 0 6px rgba(212,175,55,0.25), 0 0 0 12px rgba(212,175,55,0.1);
+      animation: pulse-dot 2s infinite;
+    }
+    @keyframes pulse-dot {
+      0%, 100% { box-shadow: 0 0 0 6px rgba(212,175,55,0.25), 0 0 0 12px rgba(212,175,55,0.1); }
+      50% { box-shadow: 0 0 0 10px rgba(212,175,55,0.15), 0 0 0 20px rgba(212,175,55,0.05); }
+    }
+    .map-label {
+      margin-top: 20px;
+      font-family: 'Lato', sans-serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+    }
+    @media (max-width: 900px) {
+      .zones-inner { grid-template-columns: 1fr; gap: 60px; }
+      .zones-map { display: none; }
+    }
+
+    /* ===== CTA SECTION ===== */
+    .cta-section {
+      padding: var(--section-gap) 0;
+      background:
+        linear-gradient(135deg, rgba(26,26,26,0.92) 0%, rgba(139,105,20,0.5) 100%),
+        url('images/sayless-studios-iwpxzekZiW8-unsplash.jpg') center/cover no-repeat;
+      text-align: center;
+    }
+    .cta-section .section-label { color: var(--gold); }
+    .cta-section .section-title { color: var(--white); font-size: clamp(2rem, 4vw, 3.5rem); margin-bottom: 20px; }
+    .cta-section p { color: rgba(255,255,255,0.65); max-width: 560px; margin: 0 auto 44px; font-size: 1.05rem; }
+    .cta-actions { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
+
+    /* ===== ABOUT ===== */
+    .about { padding: var(--section-gap) 0; }
+    .about-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .about-content p { margin-bottom: 20px; }
+    .about-img {
+      position: relative;
+      overflow: hidden;
+    }
+    .about-img img {
+      width: 100%;
+      aspect-ratio: 4/5;
+      object-fit: cover;
+      display: block;
+    }
+    .about-img-frame {
+      position: absolute;
+      top: 20px; left: 20px; right: -20px; bottom: -20px;
+      border: 2px solid var(--gold);
+      opacity: 0.25;
+      z-index: -1;
+    }
+    .credentials {
+      display: flex;
+      gap: 24px;
+      margin-top: 36px;
+      flex-wrap: wrap;
+    }
+    .credential {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Lato', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--wood);
+    }
+    .credential::before {
+      content: '';
+      width: 8px; height: 8px;
+      background: var(--gold);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    @media (max-width: 900px) {
+      .about-inner { grid-template-columns: 1fr; gap: 60px; }
+    }
+
+    /* ===== DEVIS PAGE ===== */
+    .devis-section { padding: var(--section-gap) 0; }
+    .devis-section .section-title { margin-bottom: 12px; }
+    .devis-wrapper {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 60px;
+      margin-top: 60px;
+    }
+    .form-group { margin-bottom: 24px; }
+    .form-group label {
+      display: block;
+      font-family: 'Lato', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--dark);
+      margin-bottom: 8px;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 14px 18px;
+      background: var(--white);
+      border: 1px solid var(--light-gray);
+      border-radius: 2px;
+      font-family: 'Lato', sans-serif;
+      font-size: 0.95rem;
+      color: var(--dark);
+      outline: none;
+      transition: border-color 0.3s;
+      appearance: none;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus { border-color: var(--gold); }
+    .form-group textarea { resize: vertical; min-height: 120px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .form-submit { width: 100%; padding: 18px; font-size: 0.9rem; }
+    .devis-info { background: var(--dark); padding: 48px 36px; color: var(--white); }
+    .devis-info h3 {
+      font-size: 1.4rem;
+      margin-bottom: 8px;
+      color: var(--white);
+    }
+    .devis-info p { color: rgba(255,255,255,0.6); font-size: 0.92rem; }
+    .info-items { margin-top: 32px; display: flex; flex-direction: column; gap: 20px; }
+    .info-item { display: flex; gap: 14px; }
+    .info-icon {
+      width: 40px; height: 40px;
+      background: rgba(212,175,55,0.15);
+      border: 1px solid rgba(212,175,55,0.3);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem;
+      flex-shrink: 0;
+      border-radius: 2px;
+    }
+    .info-text .title {
+      font-family: 'Lato', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 4px;
+    }
+    .info-text .val { color: rgba(255,255,255,0.7); font-size: 0.92rem; }
+    @media (max-width: 900px) { .devis-wrapper { grid-template-columns: 1fr; } }
+    @media (max-width: 500px) { .form-row { grid-template-columns: 1fr; } }
+
+    /* ===== CONTACT ===== */
+    .contact-section { padding: var(--section-gap) 0; background: var(--white); }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .contact-card {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      padding: 28px;
+      background: var(--cream);
+      border: 1px solid var(--light-gray);
+      margin-bottom: 16px;
+      transition: all 0.3s;
+    }
+    .contact-card:hover { border-color: var(--gold); }
+    .contact-icon {
+      width: 48px; height: 48px;
+      background: linear-gradient(135deg, var(--gold), var(--light-wood));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+      border-radius: 2px;
+    }
+    .contact-info-label {
+      font-family: 'Lato', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--wood);
+      margin-bottom: 4px;
+    }
+    .contact-info-val {
+      font-size: 1rem;
+      color: var(--dark);
+      font-family: 'Lato', sans-serif;
+    }
+    @media (max-width: 900px) { .contact-grid { grid-template-columns: 1fr; gap: 60px; } }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: #111;
+      padding: 60px 0 30px;
+    }
+    .footer-top {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 60px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      margin-bottom: 32px;
+    }
+    .footer-brand .logo { display: block; margin-bottom: 16px; }
+    .footer-brand p { color: rgba(255,255,255,0.45); font-size: 0.9rem; max-width: 300px; }
+    .footer-col h4 {
+      font-family: 'Lato', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-col ul li a {
+      color: rgba(255,255,255,0.45);
+      text-decoration: none;
+      font-size: 0.88rem;
+      transition: color 0.3s;
+    }
+    .footer-col ul li a:hover { color: var(--gold); }
+    .footer-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .footer-bottom p { color: rgba(255,255,255,0.3); font-size: 0.8rem; }
+    .footer-bottom a { color: rgba(255,255,255,0.3); text-decoration: none; }
+    .footer-bottom a:hover { color: var(--gold); }
+    @media (max-width: 768px) {
+      .footer-top { grid-template-columns: 1fr; gap: 40px; }
+    }
+
+    /* ===== PAGE SYSTEM ===== */
+    .page { display: none; }
+    .page.active { display: block; }
+
+    /* ===== BREADCRUMB ===== */
+    .page-hero {
+      padding: 160px 0 80px;
+      background:
+        linear-gradient(135deg, rgba(26,26,26,0.9) 0%, rgba(139,105,20,0.5) 100%),
+        url('images/rendy-novantino-o6Vhfc6YcWg-unsplash.jpg') center/cover no-repeat;
+    }
+    .page-hero h1 {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+    .page-hero .breadcrumb {
+      font-family: 'Lato', sans-serif;
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.5);
+      letter-spacing: 0.08em;
+    }
+    .page-hero .breadcrumb a { color: var(--gold); text-decoration: none; }
+
+    /* ===== NOTICE TOAST ===== */
+    .toast {
+      position: fixed;
+      bottom: 30px; right: 30px;
+      background: var(--dark);
+      border-left: 3px solid var(--gold);
+      padding: 16px 24px;
+      color: var(--white);
+      font-family: 'Lato', sans-serif;
+      font-size: 0.9rem;
+      z-index: 9999;
+      transform: translateX(120%);
+      transition: transform 0.4s ease;
+      max-width: 320px;
+      border-radius: 2px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+    }
+    .toast.show { transform: translateX(0); }
+
+    /* ===== MISC ===== */
+    .divider-wood {
+      height: 4px;
+      background: linear-gradient(90deg, var(--gold), var(--light-wood), var(--gold));
+    }
+
+    /* ===== SCROLL TO TOP ===== */
+    .scroll-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 48px;
+      height: 48px;
+      background: var(--gold);
+      color: var(--dark);
+      border: none;
+      border-radius: 2px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 999;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+      box-shadow: 0 4px 20px rgba(212,175,55,0.3);
+    }
+    .scroll-top.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .scroll-top:hover {
+      background: var(--gold-light);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 30px rgba(212,175,55,0.4);
+    }
+
+    /* ===== SERVICE CARD STAGGER ===== */
+    .services-grid .service-card:nth-child(1) { transition-delay: 0ms; }
+    .services-grid .service-card:nth-child(2) { transition-delay: 100ms; }
+    .services-grid .service-card:nth-child(3) { transition-delay: 200ms; }
+    .services-grid .service-card:nth-child(4) { transition-delay: 300ms; }
+    .services-grid .service-card:nth-child(5) { transition-delay: 400ms; }
+    .services-grid .service-card:nth-child(6) { transition-delay: 500ms; }
+    .services-grid .service-card:nth-child(7) { transition-delay: 600ms; }
+    .services-grid .service-card:nth-child(8) { transition-delay: 700ms; }
+
+    /* ===== FORM FOCUS GLOW ===== */
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(212,175,55,0.12);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- PREMIUM LOADER -->
+  <div class="site-loader" id="siteLoader">
+    <div class="loader-logo">MSOL<span>92</span></div>
+    <div class="loader-bar-track">
+      <div class="loader-bar-fill" id="loaderBar"></div>
+    </div>
+  </div>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <a href="#" class="logo" onclick="showPage('home')">MSOL<span>92</span></a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#" onclick="showPage('home'); closeMenu()">Accueil</a></li>
+        <li><a href="#" onclick="showPage('services'); closeMenu()">Services</a></li>
+        <li><a href="#" onclick="showPage('about'); closeMenu()">À Propos</a></li>
+        <li><a href="#" onclick="showPage('contact'); closeMenu()">Contact</a></li>
+        <li><a href="#" onclick="showPage('devis'); closeMenu()" class="nav-cta">Devis Gratuit</a></li>
+      </ul>
+      <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ==================== PAGE ACCUEIL ==================== -->
+  <div class="page active" id="page-home">
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero-content">
+          <div class="hero-badge reveal"><span>Artisan Parqueteur — Levallois-Perret</span></div>
+          <h1 class="reveal">L'Art du Parquet<br /><em>d'Exception</em></h1>
+          <p class="hero-sub reveal">25 ans de savoir-faire artisanal en Île-de-France</p>
+          <div class="hero-divider reveal"></div>
+          <p class="hero-desc reveal">
+            MSOL92 sublime vos intérieurs avec des parquets d'exception.
+            Pose, rénovation, ponçage et vitrification — chaque chantier est traité
+            avec la précision et le soin qu'il mérite.
+          </p>
+          <div class="hero-actions reveal">
+            <a href="#" class="btn-primary" onclick="showPage('devis')">
+              Demander un devis gratuit
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="#" class="btn-secondary" onclick="showPage('services')">
+              Nos services
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="hero-scroll" onclick="document.getElementById('stats').scrollIntoView({behavior:'smooth'})">
+        <span>Découvrir</span>
+        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
+      </div>
+    </section>
+
+    <div class="divider-wood"></div>
+
+    <!-- STATS -->
+    <section class="stats" id="stats">
+      <div class="container">
+        <div class="stats-grid">
+          <div class="stat-item reveal">
+            <div class="stat-number" data-target="25">0</div>
+            <div class="stat-label">Années d'expérience</div>
+          </div>
+          <div class="stat-item reveal">
+            <div class="stat-number" data-target="500">0</div>
+            <div class="stat-label">Chantiers réalisés</div>
+          </div>
+          <div class="stat-item reveal">
+            <div class="stat-number" data-target="98">0</div>
+            <div class="stat-label">% Satisfaction clients</div>
+          </div>
+          <div class="stat-item reveal">
+            <div class="stat-number" data-target="92">0</div>
+            <div class="stat-label">Communes couvertes</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="services" id="services-home">
+      <div class="container">
+        <div class="services-header">
+          <span class="section-label reveal">Notre Savoir-faire</span>
+          <h2 class="section-title reveal">Des Prestations Haut de Gamme</h2>
+          <span class="gold-line center reveal"></span>
+          <p class="section-subtitle reveal" style="margin: 0 auto;">De la pose à la rénovation complète, nous maîtrisons tous les aspects du parquet pour sublimer votre intérieur.</p>
+        </div>
+        <div class="services-grid">
+          <div class="service-card reveal">
+            <div class="service-icon">🪵</div>
+            <h3>Pose de Parquet</h3>
+            <p>Pose de parquet massif, contrecollé ou stratifié. Nous sélectionnons les meilleures essences de bois pour un résultat à la hauteur de vos exigences.</p>
+            <a href="#" class="service-link" onclick="showPage('services')">En savoir plus →</a>
+          </div>
+          <div class="service-card reveal">
+            <div class="service-icon">🔧</div>
+            <h3>Rénovation</h3>
+            <p>Redonnez vie à votre ancien parquet. Nous réparons, remplaçons les lames abîmées et restaurons l'éclat d'origine de votre sol en bois.</p>
+            <a href="#" class="service-link" onclick="showPage('services')">En savoir plus →</a>
+          </div>
+          <div class="service-card reveal">
+            <div class="service-icon">✨</div>
+            <h3>Ponçage</h3>
+            <p>Ponçage professionnel avec équipements dernière génération. Élimination des rayures, taches et irrégularités pour une surface parfaitement plane.</p>
+            <a href="#" class="service-link" onclick="showPage('services')">En savoir plus →</a>
+          </div>
+          <div class="service-card reveal">
+            <div class="service-icon">🛡️</div>
+            <h3>Vitrification</h3>
+            <p>Protection durable avec des produits haute performance. Finition mate, satinée ou brillante selon vos préférences esthétiques.</p>
+            <a href="#" class="service-link" onclick="showPage('services')">En savoir plus →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PASSION -->
+    <section class="passion">
+      <div class="container">
+        <div class="passion-inner">
+          <div class="passion-visual reveal-left">
+            <div class="passion-img-wrap">
+              <img src="images/julia-XggVb8YySUM-unsplash.jpg" alt="Artisan parqueteur — vitrification au pinceau" loading="lazy" />
+              <div class="passion-badge">
+                <div class="big">25+</div>
+                <div class="small">ans d'expertise</div>
+              </div>
+            </div>
+          </div>
+          <div class="passion-content reveal-right">
+            <span class="section-label">Notre philosophie</span>
+            <h2 class="section-title">Notre Passion<br />du Bois</h2>
+            <span class="gold-line"></span>
+            <p>Le bois est une matière vivante qui raconte une histoire. Chez MSOL92, nous traitons chaque essence avec le respect qu'elle mérite, en conjuguant techniques traditionnelles et technologies modernes.</p>
+            <p>Notre engagement : un résultat impeccable, des délais respectés et une relation de confiance avec chacun de nos clients.</p>
+            <ul class="passion-features">
+              <li>Matériaux sélectionnés auprès de fournisseurs certifiés</li>
+              <li>Machines professionnelles silencieuses et sans poussière</li>
+              <li>Finitions à base de produits écologiques et durables</li>
+              <li>Devis détaillé et transparent, sans surprise</li>
+              <li>Garantie décennale sur toutes nos prestations</li>
+            </ul>
+            <a href="#" class="btn-primary" onclick="showPage('about')" style="display:inline-flex;">
+              Découvrir notre histoire
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="testimonials">
+      <div class="container">
+        <div class="testimonials-header">
+          <span class="section-label reveal">Ils nous font confiance</span>
+          <h2 class="section-title reveal">Avis de nos Clients</h2>
+          <div class="stars reveal" style="justify-content:center; gap: 6px;">
+            <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+          </div>
+          <span class="gold-line center"></span>
+        </div>
+        <div class="testimonials-grid">
+          <div class="testimonial-card reveal">
+            <span class="quote-mark">"</span>
+            <div class="stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+            <p class="testimonial-text">Un travail d'une précision remarquable. MSOL92 a rénové notre parquet en chêne massif en seulement deux jours. Le résultat dépasse toutes nos espérances — on croirait un parquet neuf.</p>
+            <div class="testimonial-author">
+              <div class="author-avatar">SC</div>
+              <div>
+                <div class="author-name">Sophie & Charles D.</div>
+                <div class="author-loc">Neuilly-sur-Seine · Rénovation parquet</div>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card reveal">
+            <span class="quote-mark">"</span>
+            <div class="stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+            <p class="testimonial-text">Service exceptionnel du début à la fin. Le devis était clair et honnête, les délais parfaitement respectés. La pose de notre parquet en point de Hongrie est absolument magnifique.</p>
+            <div class="testimonial-author">
+              <div class="author-avatar">AM</div>
+              <div>
+                <div class="author-name">Alexandre M.</div>
+                <div class="author-loc">Levallois-Perret · Pose parquet neuf</div>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card reveal">
+            <span class="quote-mark">"</span>
+            <div class="stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+            <p class="testimonial-text">Ponçage et vitrification de tout notre appartement haussmannien. L'équipe était professionnelle, propre et discrète. La qualité est au rendez-vous et le prix très compétitif pour ce niveau de finition.</p>
+            <div class="testimonial-author">
+              <div class="author-avatar">IL</div>
+              <div>
+                <div class="author-name">Isabelle L.</div>
+                <div class="author-loc">Paris 17e · Ponçage & vitrification</div>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card reveal testi-extra">
+            <span class="quote-mark">"</span>
+            <div class="stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+            <p class="testimonial-text">Je recommande MSOL92 sans hésitation. Réactivité, sérieux et résultat impeccable. Mon salon a été entièrement transformé grâce à la pose d'un parquet en noyer. Merci !</p>
+            <div class="testimonial-author">
+              <div class="author-avatar">TB</div>
+              <div>
+                <div class="author-name">Thomas B.</div>
+                <div class="author-loc">Courbevoie · Pose parquet noyer</div>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card reveal testi-extra">
+            <span class="quote-mark">"</span>
+            <div class="stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+            <p class="testimonial-text">Une vraie expertise artisanale. MSOL92 a su respecter le caractère de notre maison ancienne tout en modernisant les sols. Un équilibre parfait entre tradition et modernité.</p>
+            <div class="testimonial-author">
+              <div class="author-avatar">MF</div>
+              <div>
+                <div class="author-name">Marie-France & Pierre G.</div>
+                <div class="author-loc">Saint-Cloud · Rénovation villa</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section class="cta-section">
+      <div class="container">
+        <span class="section-label reveal">Prêt à transformer votre intérieur ?</span>
+        <h2 class="section-title reveal">Demandez votre<br />Devis Gratuit</h2>
+        <p class="reveal">Notre artisan se déplace chez vous gratuitement pour évaluer votre projet et vous proposer une solution sur-mesure.</p>
+        <div class="cta-actions reveal">
+          <a href="#" class="btn-primary" onclick="showPage('devis')">
+            Demander un devis
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="#" class="btn-secondary" onclick="showPage('contact')">
+            Nous contacter
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </div><!-- /page-home -->
+
+
+  <!-- ==================== PAGE SERVICES ==================== -->
+  <div class="page" id="page-services">
+    <div class="page-hero">
+      <div class="container">
+        <p class="breadcrumb"><a href="#" onclick="showPage('home')">Accueil</a> / Services</p>
+        <h1>Nos Services</h1>
+      </div>
+    </div>
+    <section class="services" style="padding-top: 80px;">
+      <div class="container">
+        <div style="text-align:center; margin-bottom: 64px;">
+          <span class="section-label reveal">Ce que nous proposons</span>
+          <h2 class="section-title reveal">Toutes nos Prestations Parquet</h2>
+          <span class="gold-line center reveal"></span>
+          <p class="section-subtitle reveal" style="margin: 0 auto;">MSOL92 maîtrise l'ensemble des techniques du parquet pour répondre à tous vos besoins, des plus simples aux plus ambitieux.</p>
+        </div>
+        <div class="services-grid">
+          <div class="service-card reveal">
+            <div class="service-icon">🪵</div>
+            <h3>Pose de Parquet Massif</h3>
+            <p>Chêne, frêne, noyer, merisier... Nous sélectionnons et posons les essences les plus nobles pour un résultat intemporel et durables.</p>
+          </div>
+          <div class="service-card reveal">
+            <div class="service-icon">📐</div>
+            <h3>Parquet Contrecollé</h3>
+            <p>Alliant esthétique du bois naturel et stabilité dimensionnelle, le parquet contrecollé est idéal pour les appartements modernes en plancher chauffant.</p>
+          </div>
+          <div class="service-card reveal">
+            <div class="service-icon">🔧</div>
+            <h3>Rénovation Complète</h3>
+            <p>Remplacement de lames, rattrapage de niveau, traitement des grincements — nous restaurons votre parquet comme au premier jour.</p>
+          </div>
+          <div class="service-card reveal">
+            <div class="service-icon">✨</div>
+            <h3>Ponçage Professionnel</h3>
+            <p>Machines à aspiration intégrée pour un chantier propre et sans poussière. Résultat parfaitement lisse garanti.</p>
+          </div>
+          <div class="service-card reveal">
+            <div class="service-icon">🛡️</div>
+            <h3>Vitrification & Huilage</h3>
+            <p>Vitrification polyuréthane haute résistance ou huilage naturel pour une finition authentique et protectrice. Finition mate, satinée ou brillante.</p>
+          </div>
+          <div class="service-card reveal">
+            <div class="service-icon">🏗️</div>
+            <h3>Parquet Point de Hongrie</h3>
+            <p>La pose en point de Hongrie, noble et élégante, est notre spécialité. Un travail d'orfèvre pour les intérieurs les plus exigeants.</p>
+          </div>
+          <div class="service-card reveal">
+            <div class="service-icon">🌿</div>
+            <h3>Traitement Écologique</h3>
+            <p>Produits certifiés à faible VOC, respectueux de l'environnement et de vos proches. Idéal pour les chambres d'enfants.</p>
+          </div>
+          <div class="service-card reveal">
+            <div class="service-icon">🏡</div>
+            <h3>Réception Chantier</h3>
+            <p>Chaque prestation se termine par une visite de réception avec remise d'un rapport détaillé et conseils d'entretien personnalisés.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <div class="container">
+        <span class="section-label reveal">Vous avez un projet ?</span>
+        <h2 class="section-title reveal">Obtenez votre Devis Gratuit</h2>
+        <p class="reveal">Déplacement offert dans tout le Hauts-de-Seine et Paris pour l'estimation de votre projet.</p>
+        <div class="cta-actions reveal">
+          <a href="#" class="btn-primary" onclick="showPage('devis')">Demander un devis</a>
+          <a href="#" class="btn-secondary" onclick="showPage('contact')">Nous appeler</a>
+        </div>
+      </div>
+    </section>
+  </div><!-- /page-services -->
+
+
+  <!-- ==================== PAGE À PROPOS ==================== -->
+  <div class="page" id="page-about">
+    <div class="page-hero">
+      <div class="container">
+        <p class="breadcrumb"><a href="#" onclick="showPage('home')">Accueil</a> / À Propos</p>
+        <h1>Notre Histoire</h1>
+      </div>
+    </div>
+    <section class="about" style="padding-top: 80px;">
+      <div class="container">
+        <div class="about-inner">
+          <div class="about-content reveal-left">
+            <span class="section-label">L'artisan derrière MSOL92</span>
+            <h2 class="section-title">Une Passion,<br />Un Métier</h2>
+            <span class="gold-line"></span>
+            <p>MSOL92 est né d'une passion authentique pour le bois et le travail bien fait. Fort de plus de 25 ans d'expérience dans le métier, notre artisan s'est installé à son compte en 2019 pour exercer avec rigueur et amour du détail dans tout le bassin parisien.</p>
+            <p>Formé aux techniques traditionnelles françaises de pose de parquet, il a enrichi son savoir-faire au fil des chantiers, des appartements haussmanniens aux villas contemporaines, en passant par les lofts industriels.</p>
+            <p>Installé à Levallois-Perret, au cœur des Hauts-de-Seine, MSOL92 intervient principalement dans le 92, le 75 et les départements limitrophes avec la même exigence de qualité sur chaque chantier.</p>
+            <div class="credentials">
+              <span class="credential">Artisan Certifié</span>
+              <span class="credential">Garantie Décennale</span>
+              <span class="credential">Assurance Pro</span>
+              <span class="credential">RGE Éco-artisan</span>
+            </div>
+          </div>
+          <div class="about-img reveal-right">
+            <img src="images/clay-banks-J6nvHLE9obU-unsplash.jpg" alt="Parquet en chêne — intérieur classique MSOL92" loading="lazy" />
+            <div class="about-img-frame"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="passion" style="padding: 80px 0;">
+      <div class="container">
+        <div style="text-align:center; margin-bottom: 60px;">
+          <span class="section-label reveal">Nos valeurs</span>
+          <h2 class="section-title reveal" style="color: var(--white);">Ce qui nous Distingue</h2>
+          <span class="gold-line center reveal"></span>
+        </div>
+        <div class="services-grid" style="grid-template-columns: repeat(3, 1fr);">
+          <div class="service-card reveal" style="background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.08);">
+            <div class="service-icon">🎯</div>
+            <h3 style="color:var(--white);">Précision</h3>
+            <p style="color: rgba(255,255,255,0.55);">Chaque lame est posée avec soin. Nous ne faisons aucune concession sur la qualité de l'exécution, quelle que soit la taille du chantier.</p>
+          </div>
+          <div class="service-card reveal" style="background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.08);">
+            <div class="service-icon">🤝</div>
+            <h3 style="color:var(--white);">Confiance</h3>
+            <p style="color: rgba(255,255,255,0.55);">Devis transparent, délais respectés, communication régulière. La confiance se construit dès le premier échange et se maintient bien après le chantier.</p>
+          </div>
+          <div class="service-card reveal" style="background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.08);">
+            <div class="service-icon">🌱</div>
+            <h3 style="color:var(--white);">Durabilité</h3>
+            <p style="color: rgba(255,255,255,0.55);">Nous privilégions des matériaux et produits respectueux de l'environnement pour des intérieurs sains et des finitions qui traversent le temps.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div><!-- /page-about -->
+
+
+  <!-- ==================== PAGE DEVIS ==================== -->
+  <div class="page" id="page-devis">
+    <div class="page-hero">
+      <div class="container">
+        <p class="breadcrumb"><a href="#" onclick="showPage('home')">Accueil</a> / Devis Gratuit</p>
+        <h1>Demander un Devis</h1>
+      </div>
+    </div>
+    <section class="devis-section">
+      <div class="container">
+        <span class="section-label reveal">Gratuit &amp; sans engagement</span>
+        <h2 class="section-title reveal">Votre Projet Parquet</h2>
+        <p class="reveal" style="max-width: 600px;">Remplissez ce formulaire et nous vous recontactons sous 24h pour convenir d'un rendez-vous gratuit chez vous.</p>
+        <div class="devis-wrapper">
+          <form class="reveal" onsubmit="handleForm(event)">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="prenom">Prénom *</label>
+                <input type="text" id="prenom" placeholder="Jean" required />
+              </div>
+              <div class="form-group">
+                <label for="nom">Nom *</label>
+                <input type="text" id="nom" placeholder="Dupont" required />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="tel">Téléphone *</label>
+                <input type="tel" id="tel" placeholder="06 XX XX XX XX" required />
+              </div>
+              <div class="form-group">
+                <label for="email">Email *</label>
+                <input type="email" id="email" placeholder="jean@exemple.fr" required />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="adresse">Adresse du chantier *</label>
+              <input type="text" id="adresse" placeholder="15 rue de la Paix, 92300 Levallois-Perret" required />
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="prestation">Type de prestation *</label>
+                <select id="prestation" required>
+                  <option value="">Sélectionnez...</option>
+                  <option>Pose parquet neuf</option>
+                  <option>Rénovation parquet</option>
+                  <option>Ponçage</option>
+                  <option>Vitrification</option>
+                  <option>Ponçage + Vitrification</option>
+                  <option>Autre</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="surface">Surface estimée (m²)</label>
+                <input type="number" id="surface" placeholder="Ex : 45" min="1" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="message">Décrivez votre projet</label>
+              <textarea id="message" placeholder="Type de parquet actuel, état, contraintes particulières, délai souhaité..."></textarea>
+            </div>
+            <button type="submit" class="btn-primary form-submit">
+              Envoyer ma demande
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+          </form>
+          <div class="devis-info reveal-right">
+            <h3>Pourquoi nous choisir ?</h3>
+            <p>Un artisan sérieux, réactif et à l'écoute de vos besoins.</p>
+            <div class="info-items">
+              <div class="info-item">
+                <div class="info-icon">⚡</div>
+                <div class="info-text">
+                  <div class="title">Réponse rapide</div>
+                  <div class="val">Rappel sous 24h ouvrées garantis</div>
+                </div>
+              </div>
+              <div class="info-item">
+                <div class="info-icon">🚗</div>
+                <div class="info-text">
+                  <div class="title">Déplacement gratuit</div>
+                  <div class="val">Visite et estimation offertes</div>
+                </div>
+              </div>
+              <div class="info-item">
+                <div class="info-icon">📋</div>
+                <div class="info-text">
+                  <div class="title">Devis détaillé</div>
+                  <div class="val">Transparent, sans frais cachés</div>
+                </div>
+              </div>
+              <div class="info-item">
+                <div class="info-icon">🛡️</div>
+                <div class="info-text">
+                  <div class="title">Garantie décennale</div>
+                  <div class="val">Toutes nos prestations sont assurées</div>
+                </div>
+              </div>
+              <div class="info-item">
+                <div class="info-icon">📍</div>
+                <div class="info-text">
+                  <div class="title">Zone d'intervention</div>
+                  <div class="val">Levallois-Perret & Île-de-France</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div><!-- /page-devis -->
+
+
+  <!-- ==================== PAGE CONTACT ==================== -->
+  <div class="page" id="page-contact">
+    <div class="page-hero">
+      <div class="container">
+        <p class="breadcrumb"><a href="#" onclick="showPage('home')">Accueil</a> / Contact</p>
+        <h1>Nous Contacter</h1>
+      </div>
+    </div>
+    <section class="contact-section">
+      <div class="container">
+        <div class="contact-grid">
+          <div class="reveal-left">
+            <span class="section-label">Coordonnées</span>
+            <h2 class="section-title" style="margin-bottom: 40px;">Parlons de<br />votre Projet</h2>
+            <div class="contact-card">
+              <div class="contact-icon">📞</div>
+              <div>
+                <div class="contact-info-label">Téléphone</div>
+                <div class="contact-info-val"><a href="tel:0635261363" style="color:inherit;text-decoration:none;">06 35 26 13 63</a></div>
+              </div>
+            </div>
+            <div class="contact-card">
+              <div class="contact-icon">✉️</div>
+              <div>
+                <div class="contact-info-label">Email</div>
+                <div class="contact-info-val"><a href="mailto:msol.said@gmail.com" style="color:inherit;text-decoration:none;">msol.said@gmail.com</a></div>
+              </div>
+            </div>
+            <div class="contact-card">
+              <div class="contact-icon">📍</div>
+              <div>
+                <div class="contact-info-label">Adresse</div>
+                <div class="contact-info-val">7 Rue Victor Hugo<br />92300 Levallois-Perret</div>
+              </div>
+            </div>
+            <div class="contact-card">
+              <div class="contact-icon">🕐</div>
+              <div>
+                <div class="contact-info-label">Horaires</div>
+                <div class="contact-info-val">Lun–Ven : 8h30–19h30<br />Sam : sur rendez-vous</div>
+              </div>
+            </div>
+          </div>
+          <div class="reveal-right">
+            <span class="section-label">Message</span>
+            <h2 class="section-title" style="margin-bottom: 28px;">Écrivez-nous</h2>
+            <form onsubmit="handleForm(event)">
+              <div class="form-group">
+                <label for="c-name">Nom complet *</label>
+                <input type="text" id="c-name" placeholder="Jean Dupont" required />
+              </div>
+              <div class="form-group">
+                <label for="c-email">Email *</label>
+                <input type="email" id="c-email" placeholder="jean@exemple.fr" required />
+              </div>
+              <div class="form-group">
+                <label for="c-subject">Sujet</label>
+                <input type="text" id="c-subject" placeholder="Demande de renseignement" />
+              </div>
+              <div class="form-group">
+                <label for="c-msg">Message *</label>
+                <textarea id="c-msg" rows="5" placeholder="Décrivez votre demande..." required></textarea>
+              </div>
+              <button type="submit" class="btn-primary" style="width:100%; justify-content:center;">
+                Envoyer le message
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div><!-- /page-contact -->
+
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="#" class="logo" onclick="showPage('home')">MSOL<span>92</span></a>
+          <p>Artisan parqueteur expert à Levallois-Perret. Pose, rénovation, ponçage et vitrification de parquet en Île-de-France. 7 Rue Victor Hugo, 92300 Levallois-Perret — 06 35 26 13 63</p>
+        </div>
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="#" onclick="showPage('home')">Accueil</a></li>
+            <li><a href="#" onclick="showPage('services')">Services</a></li>
+            <li><a href="#" onclick="showPage('about')">À Propos</a></li>
+            <li><a href="#" onclick="showPage('contact')">Contact</a></li>
+            <li><a href="#" onclick="showPage('devis')">Devis Gratuit</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Nos Services</h4>
+          <ul>
+            <li><a href="#" onclick="showPage('services')">Pose de Parquet</a></li>
+            <li><a href="#" onclick="showPage('services')">Rénovation</a></li>
+            <li><a href="#" onclick="showPage('services')">Ponçage</a></li>
+            <li><a href="#" onclick="showPage('services')">Vitrification</a></li>
+            <li><a href="#" onclick="showPage('services')">Point de Hongrie</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 MSOL92 – Tous droits réservés · Levallois-Perret (92)</p>
+        <p>Artisan parqueteur Île-de-France · <a href="#">Mentions légales</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SCROLL TO TOP -->
+  <button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Retour en haut">
+    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 15l7-7 7 7"/></svg>
+  </button>
+
+  <!-- TOAST -->
+  <div class="toast" id="toast">Message envoyé avec succès !</div>
+
+  <!-- ===== JAVASCRIPT ===== -->
+  <script>
+    // ---------- PREMIUM LOADER ----------
+    (function() {
+      const bar = document.getElementById('loaderBar');
+      const loader = document.getElementById('siteLoader');
+      let progress = 0;
+      const interval = setInterval(() => {
+        progress += Math.random() * 25 + 10;
+        if (progress >= 100) {
+          progress = 100;
+          clearInterval(interval);
+          bar.style.width = '100%';
+          setTimeout(() => loader.classList.add('hidden'), 400);
+        }
+        bar.style.width = progress + '%';
+      }, 200);
+      window.addEventListener('load', () => {
+        progress = 100;
+        bar.style.width = '100%';
+        setTimeout(() => loader.classList.add('hidden'), 600);
+      });
+    })();
+
+    // ---------- PAGE ROUTING ----------
+    function showPage(name) {
+      document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+      document.getElementById('page-' + name).classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      setTimeout(initReveal, 100);
+    }
+
+    // ---------- NAVBAR SCROLL + SCROLL TO TOP ----------
+    const navbar = document.getElementById('navbar');
+    const scrollTopBtn = document.getElementById('scrollTop');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 60);
+      scrollTopBtn.classList.toggle('show', window.scrollY > 500);
+    });
+
+    // ---------- HAMBURGER MENU ----------
+    function toggleMenu() {
+      const nav = document.getElementById('navLinks');
+      const ham = document.getElementById('hamburger');
+      nav.classList.toggle('open');
+      ham.classList.toggle('open');
+    }
+    function closeMenu() {
+      document.getElementById('navLinks').classList.remove('open');
+      document.getElementById('hamburger').classList.remove('open');
+    }
+
+    // ---------- SCROLL REVEAL (staggered) ----------
+    function initReveal() {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            // Stagger siblings of same type
+            const parent = entry.target.parentElement;
+            const siblings = parent.querySelectorAll('.reveal:not(.visible), .reveal-left:not(.visible), .reveal-right:not(.visible)');
+            let delay = 0;
+            siblings.forEach(sib => {
+              sib.style.transitionDelay = delay + 'ms';
+              delay += 120;
+            });
+            entry.target.classList.add('visible');
+          }
+        });
+      }, { threshold: 0.12 });
+
+      document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => {
+        if (!el.classList.contains('visible')) {
+          observer.observe(el);
+        }
+      });
+    }
+    initReveal();
+
+    // ---------- COUNTER ANIMATION ----------
+    function animateCounters() {
+      document.querySelectorAll('.stat-number[data-target]').forEach(el => {
+        const target = parseInt(el.dataset.target);
+        const suffix = el.dataset.target.includes('+') ? '+' : (target === 98 ? '%' : '+');
+        let current = 0;
+        const step = Math.ceil(target / 60);
+        const timer = setInterval(() => {
+          current = Math.min(current + step, target);
+          el.textContent = current + suffix;
+          if (current >= target) clearInterval(timer);
+        }, 25);
+      });
+    }
+
+    const statsSection = document.querySelector('.stats');
+    if (statsSection) {
+      const statsObserver = new IntersectionObserver((entries) => {
+        if (entries[0].isIntersecting) {
+          animateCounters();
+          statsObserver.disconnect();
+        }
+      }, { threshold: 0.3 });
+      statsObserver.observe(statsSection);
+    }
+
+    // ---------- FORM HANDLER ----------
+    function handleForm(e) {
+      e.preventDefault();
+      const toast = document.getElementById('toast');
+      toast.textContent = '✓ Message envoyé ! Nous vous recontactons sous 24h.';
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 4000);
+      e.target.reset();
+    }
+
+    // ---------- SMOOTH ANCHOR ----------
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const href = a.getAttribute('href');
+        if (href === '#') return;
+        e.preventDefault();
+        const target = document.querySelector(href);
+        if (target) target.scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+  </script>
+</body>
+</html>
