@@ -48,16 +48,28 @@
     --ease-soft: cubic-bezier(0.22, 1, 0.36, 1);
   }
 
-  /* ===== FILM GRAIN OVERLAY ===== */
-  body::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    z-index: 100;
-    opacity: 0.035;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.95' numOctaves='3' /%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  /* ===== FILM GRAIN OVERLAY (desktop only) ===== */
+  @media (min-width: 900px) {
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 100;
+      opacity: 0.035;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.95' numOctaves='3' /%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
   }
+
+  /* Mobile perf: alleg backdrop-filters + reveal blur */
+  @media (max-width: 899px) {
+    .nav { backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+    .mobile-menu { backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
+    .eyebrow, .hero-eyebrow { backdrop-filter: none; -webkit-backdrop-filter: none; }
+    .reveal { filter: none !important; }
+    .reveal:not(.in) { transform: translateY(20px); }
+  }
+  .hero-bg { backface-visibility: hidden; transform: translateZ(0) scale(1.05); }
 
   /* ===== TYPOGRAPHY ===== */
   .serif { font-family: 'Cormorant Garamond', serif; font-weight: 400; letter-spacing: -0.01em; }
@@ -709,16 +721,16 @@
     </div>
 
     <div class="gallery-grid">
-      <div class="g-item g-1 reveal"><img src="images/hero-panorama.png?v=3" alt="Ponçage de parquet sur péniche, vue Seine" /><span class="caption">Péniche · Ponçage panoramique</span></div>
-      <div class="g-item g-2 reveal"><img src="images/ponceuse-1.webp?v=3" alt="Artisan parqueteur ponceuse" /><span class="caption">Restauration · Hublot</span></div>
-      <div class="g-item g-3 reveal"><img src="images/ponceuse-2.png?v=3" alt="Artisan en pleine action" /><span class="caption">Geste artisanal</span></div>
-      <div class="g-item g-4 reveal"><img src="images/chevron-zoom.jpg?v=3" alt="Parquet chevron classique" /><span class="caption">Chevron · Détail</span></div>
-      <div class="g-item g-5 reveal"><img src="images/hongroise-clair.jpg?v=3" alt="Point de Hongrie clair" /><span class="caption">Point de Hongrie</span></div>
-      <div class="g-item g-6 reveal"><img src="images/hongroise-miel.webp?v=3" alt="Point de Hongrie miel" /><span class="caption">Finition miel</span></div>
-      <div class="g-item g-8 reveal"><img src="images/said-chevron.webp" alt="Saïd posant un parquet chevron" /><span class="caption">Pose chevron · Geste de précision</span></div>
-      <div class="g-item g-9 reveal"><img src="images/said-vitrification.webp" alt="Vitrification au rouleau sur péniche" /><span class="caption">Vitrification · Péniche</span></div>
-      <div class="g-item g-10 reveal"><img src="images/said-produits.webp" alt="Produits Blanchon pour vitrification" /><span class="caption">Sélection Blanchon · Produits nobles</span></div>
-      <div class="g-item g-11 reveal"><img src="images/salon-cheminee.jpg" alt="Salon avec cheminée et parquet vitrifié" /><span class="caption">Salon · Parquet vitrifié satiné</span></div>
+      <div class="g-item g-1 reveal"><img loading="lazy" decoding="async" src="images/hero-panorama.png?v=3" alt="Ponçage de parquet sur péniche, vue Seine" /><span class="caption">Péniche · Ponçage panoramique</span></div>
+      <div class="g-item g-2 reveal"><img loading="lazy" decoding="async" src="images/ponceuse-1.webp?v=3" alt="Artisan parqueteur ponceuse" /><span class="caption">Restauration · Hublot</span></div>
+      <div class="g-item g-3 reveal"><img loading="lazy" decoding="async" src="images/ponceuse-2.png?v=3" alt="Artisan en pleine action" /><span class="caption">Geste artisanal</span></div>
+      <div class="g-item g-4 reveal"><img loading="lazy" decoding="async" src="images/chevron-zoom.jpg?v=3" alt="Parquet chevron classique" /><span class="caption">Chevron · Détail</span></div>
+      <div class="g-item g-5 reveal"><img loading="lazy" decoding="async" src="images/hongroise-clair.jpg?v=3" alt="Point de Hongrie clair" /><span class="caption">Point de Hongrie</span></div>
+      <div class="g-item g-6 reveal"><img loading="lazy" decoding="async" src="images/hongroise-miel.webp?v=3" alt="Point de Hongrie miel" /><span class="caption">Finition miel</span></div>
+      <div class="g-item g-8 reveal"><img loading="lazy" decoding="async" src="images/said-chevron.webp" alt="Saïd posant un parquet chevron" /><span class="caption">Pose chevron · Geste de précision</span></div>
+      <div class="g-item g-9 reveal"><img loading="lazy" decoding="async" src="images/said-vitrification.webp" alt="Vitrification au rouleau sur péniche" /><span class="caption">Vitrification · Péniche</span></div>
+      <div class="g-item g-10 reveal"><img loading="lazy" decoding="async" src="images/said-produits.webp" alt="Produits Blanchon pour vitrification" /><span class="caption">Sélection Blanchon · Produits nobles</span></div>
+      <div class="g-item g-11 reveal"><img loading="lazy" decoding="async" src="images/salon-cheminee.jpg" alt="Salon avec cheminée et parquet vitrifié" /><span class="caption">Salon · Parquet vitrifié satiné</span></div>
     </div>
   </div>
 </section>
@@ -728,7 +740,7 @@
   <div class="container">
     <div class="about-grid">
       <div class="about-image reveal">
-        <img src="images/said-portrait.webp" alt="Saïd, artisan parqueteur MSOL92" />
+        <img loading="lazy" decoding="async" src="images/said-portrait.webp" alt="Saïd, artisan parqueteur MSOL92" />
       </div>
       <div class="reveal">
         <span class="eyebrow">À propos</span>
@@ -1014,12 +1026,23 @@
     return false;
   }
 
-  // Hero subtle parallax
+  // Hero subtle parallax — desktop only, rAF-throttled
   const heroBg = document.querySelector('.hero-bg');
-  if (heroBg && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  const isDesktop = matchMedia('(min-width: 900px)').matches;
+  const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (heroBg && isDesktop && !reduceMotion) {
+    let ticking = false;
+    let scrollY = 0;
     window.addEventListener('scroll', () => {
-      const y = Math.min(window.scrollY * 0.25, 200);
-      heroBg.style.transform = `scale(1.05) translateY(${y}px)`;
+      scrollY = window.scrollY;
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          const y = Math.min(scrollY * 0.22, 180);
+          heroBg.style.transform = `scale(1.05) translate3d(0, ${y}px, 0)`;
+          ticking = false;
+        });
+        ticking = true;
+      }
     }, { passive: true });
   }
 </script>
