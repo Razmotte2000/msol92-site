@@ -542,17 +542,27 @@
   .foot-bottom { display: flex; justify-content: space-between; padding-top: 32px; border-top: 1px solid rgba(255,255,255,0.08); font-size: 0.8rem; color: rgba(253,251,247,0.5); }
   @media (max-width: 880px) { .foot-grid { grid-template-columns: 1fr 1fr; gap: 40px; } .foot-bottom { flex-direction: column; gap: 12px; } }
 
-  /* ===== WHATSAPP FLOAT ===== */
-  .wa-float {
+  /* ===== FLOATING BUTTONS ===== */
+  .float-stack {
     position: fixed; bottom: 24px; right: 24px; z-index: 95;
+    display: flex; flex-direction: column; gap: 12px;
+  }
+  .float-btn {
     width: 56px; height: 56px; border-radius: 999px;
-    background: #25D366; color: #fff;
     display: inline-flex; align-items: center; justify-content: center;
-    box-shadow: 0 12px 32px -8px rgba(37,211,102,0.55), 0 4px 12px rgba(0,0,0,0.15);
+    color: #fff;
+    box-shadow: 0 12px 32px -8px rgba(0,0,0,0.25), 0 4px 12px rgba(0,0,0,0.15);
     transition: transform 300ms var(--ease), box-shadow 300ms var(--ease);
   }
-  .wa-float:hover { transform: translateY(-3px) scale(1.05); box-shadow: 0 18px 40px -8px rgba(37,211,102,0.7); }
-  @media (max-width: 768px) { .wa-float { bottom: 16px; right: 16px; width: 52px; height: 52px; } }
+  .float-btn:hover { transform: translateY(-3px) scale(1.05); }
+  .wa-float { background: #25D366; box-shadow: 0 12px 32px -8px rgba(37,211,102,0.55), 0 4px 12px rgba(0,0,0,0.15); }
+  .wa-float:hover { box-shadow: 0 18px 40px -8px rgba(37,211,102,0.7); }
+  .yt-float { background: #FF0000; box-shadow: 0 12px 32px -8px rgba(255,0,0,0.5), 0 4px 12px rgba(0,0,0,0.15); }
+  .yt-float:hover { box-shadow: 0 18px 40px -8px rgba(255,0,0,0.7); }
+  @media (max-width: 768px) {
+    .float-stack { bottom: 16px; right: 16px; gap: 10px; }
+    .float-btn { width: 52px; height: 52px; }
+  }
 
   /* ===== REVEAL ===== */
   .reveal { opacity: 0; transform: translateY(40px); filter: blur(6px); transition: opacity 1000ms var(--ease-soft), transform 1000ms var(--ease-soft), filter 1000ms var(--ease-soft); }
@@ -577,10 +587,15 @@
   <button class="menu-toggle" id="menuToggle" aria-label="Menu"><span></span></button>
 </nav>
 
-<!-- WhatsApp floating button -->
-<a href="https://wa.me/33635261363?text=Bonjour%20MSOL92%2C%20je%20souhaite%20un%20devis%20pour%20mon%20parquet." target="_blank" rel="noopener" class="wa-float" aria-label="Contacter MSOL92 sur WhatsApp">
-  <svg viewBox="0 0 32 32" width="28" height="28" fill="currentColor"><path d="M16.003 3C9.374 3 4 8.373 4 15c0 2.39.69 4.62 1.879 6.499L4 29l7.7-2.019A11.95 11.95 0 0016.003 27C22.63 27 28 21.627 28 15S22.63 3 16.003 3zm0 21.818c-1.945 0-3.78-.518-5.358-1.422l-.385-.227-4.566 1.198 1.22-4.451-.25-.4A9.79 9.79 0 016.18 15c0-5.418 4.41-9.818 9.823-9.818 5.413 0 9.817 4.4 9.817 9.818s-4.404 9.818-9.817 9.818zm5.61-7.353c-.31-.155-1.83-.903-2.114-1.006-.283-.103-.49-.155-.696.155s-.799 1.006-.98 1.213c-.18.207-.36.232-.67.077-.31-.155-1.31-.483-2.495-1.539-.922-.822-1.545-1.836-1.726-2.146-.18-.31-.019-.477.136-.632.139-.139.31-.36.464-.54.155-.18.207-.31.31-.517.103-.207.052-.387-.026-.542-.077-.155-.696-1.677-.954-2.297-.251-.602-.508-.52-.696-.529l-.593-.011a1.14 1.14 0 00-.825.387c-.283.31-1.083 1.058-1.083 2.58 0 1.523 1.108 2.994 1.262 3.2.155.207 2.18 3.33 5.282 4.671.738.319 1.314.509 1.763.651.74.235 1.413.202 1.945.123.594-.089 1.83-.748 2.088-1.471.258-.722.258-1.342.18-1.471-.077-.129-.283-.207-.593-.362z"/></svg>
-</a>
+<!-- Floating buttons -->
+<div class="float-stack">
+  <a href="https://www.youtube.com/@parqueteurmsol7296" target="_blank" rel="noopener" class="float-btn yt-float" aria-label="Chaîne YouTube MSOL92">
+    <svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor"><path d="M23.5 6.2a3 3 0 00-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 00.5 6.2C0 8 0 12 0 12s0 4 .5 5.8a3 3 0 002.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 002.1-2.1C24 16 24 12 24 12s0-4-.5-5.8zM9.6 15.6V8.4l6.3 3.6-6.3 3.6z"/></svg>
+  </a>
+  <a href="https://wa.me/33635261363?text=Bonjour%20MSOL92%2C%20je%20souhaite%20un%20devis%20pour%20mon%20parquet." target="_blank" rel="noopener" class="float-btn wa-float" aria-label="Contacter MSOL92 sur WhatsApp">
+    <svg viewBox="0 0 32 32" width="28" height="28" fill="currentColor"><path d="M16.003 3C9.374 3 4 8.373 4 15c0 2.39.69 4.62 1.879 6.499L4 29l7.7-2.019A11.95 11.95 0 0016.003 27C22.63 27 28 21.627 28 15S22.63 3 16.003 3zm0 21.818c-1.945 0-3.78-.518-5.358-1.422l-.385-.227-4.566 1.198 1.22-4.451-.25-.4A9.79 9.79 0 016.18 15c0-5.418 4.41-9.818 9.823-9.818 5.413 0 9.817 4.4 9.817 9.818s-4.404 9.818-9.817 9.818zm5.61-7.353c-.31-.155-1.83-.903-2.114-1.006-.283-.103-.49-.155-.696.155s-.799 1.006-.98 1.213c-.18.207-.36.232-.67.077-.31-.155-1.31-.483-2.495-1.539-.922-.822-1.545-1.836-1.726-2.146-.18-.31-.019-.477.136-.632.139-.139.31-.36.464-.54.155-.18.207-.31.31-.517.103-.207.052-.387-.026-.542-.077-.155-.696-1.677-.954-2.297-.251-.602-.508-.52-.696-.529l-.593-.011a1.14 1.14 0 00-.825.387c-.283.31-1.083 1.058-1.083 2.58 0 1.523 1.108 2.994 1.262 3.2.155.207 2.18 3.33 5.282 4.671.738.319 1.314.509 1.763.651.74.235 1.413.202 1.945.123.594-.089 1.83-.748 2.088-1.471.258-.722.258-1.342.18-1.471-.077-.129-.283-.207-.593-.362z"/></svg>
+  </a>
+</div>
 
 <div class="mobile-menu" id="mobileMenu">
   <a href="#services">Services</a>
