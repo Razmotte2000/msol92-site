@@ -216,13 +216,16 @@
   }
   .hero-bg {
     position: absolute; inset: 0; z-index: 0;
-    background: url('images/ponceuse-2.png') 18% 25%/cover no-repeat;
+    background: url('images/ponceuse-2.png') 12% 35%/cover no-repeat;
     background-color: #1a1208;
-    transform: scale(1.05);
     will-change: transform;
   }
   @media (max-width: 768px) {
-    .hero-bg { background-position: 25% 18%; background-size: auto 130%; }
+    .hero-bg {
+      background-size: 100% auto;
+      background-position: 50% 14%;
+      background-repeat: no-repeat;
+    }
   }
   .hero-bg::after {
     content: ''; position: absolute; inset: 0;
