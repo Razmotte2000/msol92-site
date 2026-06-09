@@ -849,6 +849,110 @@
   .rev-name { font-weight:500; font-size:0.95rem; color:var(--ink); }
   .rev-meta { font-size:0.78rem; color:var(--ink-mute); letter-spacing:0.05em; margin-top:2px; }
   @media (max-width:880px) { .reviews-grid { grid-template-columns:1fr; } }
+
+  /* =========================================================
+     ===== MOBILE OPTIMIZATIONS (Pass 2 — June 2026) ========
+     ========================================================= */
+
+  /* Prevent horizontal overflow + iOS smooth scrolling */
+  html, body { overflow-x: hidden; -webkit-text-size-adjust: 100%; }
+  body { -webkit-overflow-scrolling: touch; }
+  img, video, svg { max-width: 100%; height: auto; }
+
+  /* Prevent iOS auto-zoom on input focus — needs font-size >= 16px */
+  input, select, textarea {
+    font-size: 16px !important;
+  }
+  .field input, .field select, .field textarea {
+    font-size: 16px;
+  }
+
+  /* Touch devices: replace hover with active states */
+  @media (hover: none) and (pointer: coarse) {
+    .nav-links a:hover,
+    .service-card:hover,
+    .review-card:hover,
+    .float-btn:hover,
+    .submit-btn:hover,
+    .gallery-item:hover,
+    .yt-link:hover {
+      transform: none !important;
+    }
+    .nav .cta:active,
+    .submit-btn:active { transform: scale(0.97); transition: transform 100ms ease; }
+    .service-card:active,
+    .review-card:active { background: rgba(184, 134, 11, 0.03); }
+    a, button { -webkit-tap-highlight-color: rgba(184, 134, 11, 0.15); }
+  }
+
+  /* Ensure minimum tap target size 44x44px (WCAG/Apple HIG) */
+  @media (max-width: 880px) {
+    .nav-links a, .mobile-menu a, .foot-grid a,
+    .menu-toggle, .yt-link, .pill {
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+    }
+    .menu-toggle { width: 44px; height: 44px; }
+  }
+
+  /* Mobile menu polish */
+  @media (max-width: 880px) {
+    .mobile-menu {
+      padding: 24px;
+      gap: 8px;
+    }
+    .mobile-menu a {
+      padding: 14px 16px;
+      font-size: 1.05rem;
+    }
+  }
+
+  /* Small phones (≤480px) */
+  @media (max-width: 480px) {
+    .container { padding: 0 16px; }
+    section { padding: 64px 0; }
+    .hero { min-height: 88vh; }
+    h1 { font-size: clamp(2.4rem, 12vw, 3.5rem); line-height: 1.05; }
+    h2 { font-size: clamp(1.9rem, 8vw, 2.6rem); }
+    .eyebrow { font-size: 0.65rem; padding: 5px 12px; }
+    .hero-actions { flex-direction: column; align-items: stretch; gap: 12px; }
+    .hero-actions .cta, .hero-actions a { width: 100%; justify-content: center; }
+    .submit-btn { width: 100%; justify-content: center; padding: 18px 24px; }
+    .review-card { padding: 24px; }
+    .service-card { padding: 24px; }
+    .field { padding: 14px 16px; }
+    .foot-grid { grid-template-columns: 1fr; gap: 32px; }
+  }
+
+  /* Ultra small phones (≤360px) — iPhone SE 1st gen, older Android */
+  @media (max-width: 360px) {
+    .container { padding: 0 14px; }
+    h1 { font-size: 2.1rem; }
+    h2 { font-size: 1.7rem; }
+    .hero-badge span { font-size: 0.7rem; }
+    .nav { top: 12px; padding: 6px 10px; }
+    .brand-logo { width: 36px; height: 36px; }
+    .float-stack { bottom: 12px; right: 12px; }
+    .float-btn { width: 48px; height: 48px; }
+  }
+
+  /* Landscape phones — keep hero usable */
+  @media (max-width: 900px) and (orientation: landscape) and (max-height: 500px) {
+    .hero { min-height: 100vh; padding: 80px 0 40px; }
+    section { padding: 48px 0; }
+  }
+
+  /* Respect reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+    .reveal { opacity: 1; transform: none; filter: none; }
+  }
 </style>
 
 <!-- ===== DEVIS ===== -->
