@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>{{TITLE}} · MSOL92</title>
+<meta name="description" content="{{META_DESCRIPTION}}" />
+<meta name="keywords" content="{{KEYWORDS}}" />
+<meta name="author" content="MSOL92" />
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+<link rel="canonical" href="https://razmotte2000.github.io/msol92-site/blog/{{SLUG}}.html" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="article" />
+<meta property="og:title" content="{{TITLE}}" />
+<meta property="og:description" content="{{META_DESCRIPTION}}" />
+<meta property="og:url" content="https://razmotte2000.github.io/msol92-site/blog/{{SLUG}}.html" />
+<meta property="og:image" content="https://razmotte2000.github.io/msol92-site/{{COVER_IMAGE}}" />
+<meta property="og:locale" content="fr_FR" />
+<meta property="og:site_name" content="MSOL92" />
+<meta property="article:published_time" content="{{DATE_ISO}}" />
+<meta property="article:author" content="MSOL92" />
+<meta property="article:section" content="{{CATEGORY}}" />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="{{TITLE}}" />
+<meta name="twitter:description" content="{{META_DESCRIPTION}}" />
+<meta name="twitter:image" content="https://razmotte2000.github.io/msol92-site/{{COVER_IMAGE}}" />
+
+<link rel="icon" type="image/png" href="../images/logo-msol.png" />
+<link rel="apple-touch-icon" href="../images/logo-msol.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700&display=swap" rel="stylesheet" />
+
+<!-- JSON-LD : Article + BreadcrumbList + FAQPage (boost GEO/LLM citations) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "{{TITLE}}",
+  "description": "{{META_DESCRIPTION}}",
+  "image": "https://razmotte2000.github.io/msol92-site/{{COVER_IMAGE}}",
+  "datePublished": "{{DATE_ISO}}",
+  "dateModified": "{{DATE_ISO}}",
+  "inLanguage": "fr-FR",
+  "articleSection": "{{CATEGORY}}",
+  "keywords": "{{KEYWORDS}}",
+  "wordCount": {{WORD_COUNT}},
+  "author": {
+    "@type": "Organization",
+    "name": "MSOL92",
+    "url": "https://razmotte2000.github.io/msol92-site/"
+  },
+  "publisher": {
+    "@type": "LocalBusiness",
+    "@id": "https://razmotte2000.github.io/msol92-site/#organization",
+    "name": "MSOL92",
+    "url": "https://razmotte2000.github.io/msol92-site/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://razmotte2000.github.io/msol92-site/images/logo-msol.png"
+    },
+    "telephone": "+33635261363",
+    "priceRange": "€€€",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Levallois-Perret",
+      "postalCode": "92300",
+      "addressRegion": "Île-de-France",
+      "addressCountry": "FR"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://razmotte2000.github.io/msol92-site/blog/{{SLUG}}.html"
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://razmotte2000.github.io/msol92-site/" },
+    { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://razmotte2000.github.io/msol92-site/blog/" },
+    { "@type": "ListItem", "position": 3, "name": "{{TITLE}}", "item": "https://razmotte2000.github.io/msol92-site/blog/{{SLUG}}.html" }
+  ]
+}
+</script>
+
+<!-- FAQ_JSON_LD_PLACEHOLDER : Hermes inject FAQPage schema here for GEO boost -->
+{{FAQ_JSON_LD}}
+
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --cream: #fdfbf7;
+    --cream-2: #f6f1e8;
+    --ink: #1a1612;
+    --ink-soft: #5a4f44;
+    --ink-mute: #8a7d6e;
+    --gold: #b8860b;
+    --gold-soft: #d4a637;
+    --hairline: rgba(26,22,18,0.08);
+    --hairline-strong: rgba(26,22,18,0.16);
+    --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  html { scroll-behavior: smooth; font-size: 16px; -webkit-text-size-adjust: 100%; }
+  body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    font-weight: 300;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+  a { color: inherit; text-decoration: none; }
+  img { max-width: 100%; height: auto; display: block; border-radius: 12px; }
+
+  h1, h2, h3, h4 { font-family: 'Cormorant Garamond', serif; font-weight: 500; line-height: 1.15; letter-spacing: -0.02em; color: var(--ink); }
+  h1 { font-size: clamp(2.2rem, 5vw, 3.6rem); font-weight: 400; margin-bottom: 24px; }
+  h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); margin: 56px 0 20px; }
+  h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); margin: 36px 0 14px; }
+
+  .container { max-width: 760px; margin: 0 auto; padding: 0 32px; }
+  @media (max-width: 768px) { .container { padding: 0 20px; } }
+  @media (max-width: 480px) { .container { padding: 0 16px; } }
+
+  /* NAV */
+  .nav-top { background: var(--cream); border-bottom: 1px solid var(--hairline); padding: 20px 0; position: sticky; top: 0; z-index: 50; }
+  .nav-inner { display: flex; justify-content: space-between; align-items: center; max-width: 1100px; margin: 0 auto; padding: 0 32px; }
+  @media (max-width: 768px) { .nav-inner { padding: 0 20px; } }
+  .nav-brand { display: flex; align-items: center; gap: 12px; font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; color: var(--ink); }
+  .nav-brand img { width: 36px; height: 36px; }
+  .nav-back { display: inline-flex; align-items: center; gap: 8px; font-size: 0.85rem; font-weight: 500; color: var(--ink-soft); padding: 8px 16px; border: 1px solid var(--hairline-strong); border-radius: 999px; min-height: 44px; }
+  .nav-back:hover { color: var(--ink); border-color: var(--ink-soft); }
+
+  /* BREADCRUMB */
+  .breadcrumb { font-size: 0.78rem; color: var(--ink-mute); padding: 24px 0; letter-spacing: 0.05em; }
+  .breadcrumb a { color: var(--gold); }
+  .breadcrumb a:hover { text-decoration: underline; }
+
+  /* ARTICLE HEADER */
+  .article-header { padding: 32px 0 48px; border-bottom: 1px solid var(--hairline); }
+  .article-meta { display: flex; flex-wrap: wrap; gap: 16px; font-size: 0.78rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-mute); margin-bottom: 24px; }
+  .article-meta .category { color: var(--gold); font-weight: 500; }
+  .article-meta time { color: var(--ink-soft); }
+  .article-header p.lede { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.3rem; color: var(--ink-soft); margin-top: 24px; line-height: 1.5; }
+
+  .cover-image { margin: 48px 0; border-radius: 24px; overflow: hidden; aspect-ratio: 16/9; background: var(--cream-2); }
+  .cover-image img { width: 100%; height: 100%; object-fit: cover; }
+
+  /* ARTICLE BODY */
+  article.content { padding: 56px 0; }
+  article.content p { margin-bottom: 24px; color: var(--ink-soft); font-size: 1.05rem; }
+  article.content p strong { color: var(--ink); font-weight: 500; }
+  article.content ul, article.content ol { margin: 0 0 28px 24px; }
+  article.content li { margin-bottom: 10px; color: var(--ink-soft); }
+  article.content blockquote {
+    margin: 40px 0; padding: 24px 32px;
+    border-left: 3px solid var(--gold);
+    background: var(--cream-2); border-radius: 0 16px 16px 0;
+    font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.2rem;
+    color: var(--ink);
+  }
+  article.content a { color: var(--gold); text-decoration: underline; text-underline-offset: 3px; }
+  article.content a:hover { color: var(--ink); }
+  article.content code { background: var(--cream-2); padding: 2px 6px; border-radius: 4px; font-size: 0.9em; }
+
+  /* FAQ SECTION */
+  .faq-section { margin: 64px 0; padding: 40px; background: #fff; border: 1px solid var(--hairline); border-radius: 24px; }
+  .faq-section h2 { margin-top: 0; }
+  .faq-item { padding: 20px 0; border-bottom: 1px solid var(--hairline); }
+  .faq-item:last-child { border-bottom: none; }
+  .faq-item h3 { margin: 0 0 8px; font-size: 1.15rem; }
+  .faq-item p { margin: 0; color: var(--ink-soft); }
+
+  /* AUTHOR / CTA */
+  .author-card {
+    margin: 64px 0 32px; padding: 32px;
+    background: var(--cream-2); border-radius: 24px;
+    display: flex; gap: 24px; align-items: center; flex-wrap: wrap;
+  }
+  .author-card img { width: 64px; height: 64px; border-radius: 999px; }
+  .author-card .author-info h4 { font-size: 1.2rem; margin-bottom: 4px; }
+  .author-card .author-info p { font-size: 0.85rem; color: var(--ink-soft); margin: 0; letter-spacing: 0.05em; }
+
+  .article-cta { padding: 80px 0; background: var(--ink); color: var(--cream); text-align: center; margin-top: 64px; }
+  .article-cta h2 { color: var(--cream); margin-bottom: 16px; }
+  .article-cta p { color: rgba(253,251,247,0.7); margin-bottom: 32px; }
+  .article-cta .btn {
+    display: inline-flex; align-items: center; gap: 12px;
+    background: var(--cream); color: var(--ink);
+    padding: 16px 32px; border-radius: 999px;
+    font-weight: 500; font-size: 0.95rem;
+    transition: all 400ms var(--ease);
+    min-height: 44px;
+  }
+  .article-cta .btn:hover { background: var(--gold-soft); }
+
+  footer { padding: 32px 0; text-align: center; font-size: 0.85rem; color: var(--ink-mute); }
+
+  /* Mobile */
+  @media (max-width: 480px) {
+    article.content { padding: 32px 0; }
+    article.content p { font-size: 1rem; }
+    article.content blockquote { padding: 18px 20px; font-size: 1.05rem; }
+    .faq-section { padding: 24px; }
+    .author-card { padding: 24px; gap: 16px; }
+  }
+
+  /* Touch */
+  @media (hover: none) and (pointer: coarse) {
+    a, button { -webkit-tap-highlight-color: rgba(184, 134, 11, 0.15); }
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav-top">
+  <div class="nav-inner">
+    <a href="../" class="nav-brand">
+      <img src="../images/logo-msol.png" alt="MSOL92" />
+      <span>MSOL<strong style="color:var(--gold);">92</strong></span>
+    </a>
+    <a href="./" class="nav-back">
+      <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Tous les articles
+    </a>
+  </div>
+</nav>
+
+<div class="container">
+  <nav class="breadcrumb" aria-label="Fil d'Ariane">
+    <a href="../">Accueil</a> › <a href="./">Blog</a> › <span>{{TITLE_SHORT}}</span>
+  </nav>
+
+  <header class="article-header">
+    <div class="article-meta">
+      <span class="category">{{CATEGORY}}</span>
+      <time datetime="{{DATE_ISO}}">{{DATE_HUMAN}}</time>
+      <span>{{READ_TIME}} min de lecture</span>
+    </div>
+    <h1>{{TITLE}}</h1>
+    <p class="lede">{{LEDE}}</p>
+  </header>
+
+  <div class="cover-image">
+    <img src="../{{COVER_IMAGE}}" alt="{{COVER_ALT}}" loading="eager" />
+  </div>
+
+  <article class="content">
+    {{ARTICLE_HTML_BODY}}
+  </article>
+
+  {{FAQ_HTML_SECTION}}
+
+  <div class="author-card">
+    <img src="../images/logo-msol.png" alt="MSOL92" />
+    <div class="author-info">
+      <h4>MSOL92 — Artisan parqueteur</h4>
+      <p>25 ans d'expertise · Levallois-Perret · Île-de-France</p>
+    </div>
+  </div>
+</div>
+
+<section class="article-cta">
+  <div class="container">
+    <h2>Un projet de parquet ?</h2>
+    <p>Devis gratuit sous 24h. Conseil personnalisé par un artisan.</p>
+    <a href="../#quote" class="btn">
+      Demander un devis
+      <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    © 2026 MSOL92 · Artisan parqueteur — Levallois-Perret · <a href="../" style="color:var(--gold);">Retour au site</a>
+  </div>
+</footer>
+
+</body>
+</html>
