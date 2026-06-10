@@ -50,4 +50,4 @@ Allow: /
 User-agent: Diffbot
 Allow: /
 
-Sitemap: https://razmotte2000.github.io/msol92-site/sitemap.xml
+Sitemap: https://msol92.fr/sitemap.xml
