@@ -2,22 +2,58 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 <title>MSOL92 — L'Art du Parquet d'Exception | Levallois-Perret</title>
 <meta name="description" content="MSOL92 — Artisan parqueteur d'exception à Levallois-Perret. Pose, rénovation, ponçage et vitrification de parquet en Île-de-France. Devis gratuit." />
 <meta name="theme-color" content="#0E0B08" />
-<link rel="icon" type="image/png" href="images/logo-msol.png" />
-<link rel="apple-touch-icon" href="images/logo-msol.png" />
+<link rel="icon" type="image/png" href="images/logo-msol-sm.png" />
+<link rel="apple-touch-icon" href="images/logo-msol-sm.png" />
 <meta property="og:title" content="MSOL92 — L'Art du Parquet d'Exception" />
 <meta property="og:description" content="Artisan parqueteur à Levallois-Perret. Pose, ponçage, vitrification, rénovation. Île-de-France." />
 <meta property="og:type" content="website" />
+<meta property="og:url" content="https://msol92.fr/" />
+<meta property="og:image" content="https://msol92.fr/images/hero-bg-1920.webp" />
+<meta property="og:locale" content="fr_FR" />
+<link rel="canonical" href="https://msol92.fr/" />
+<link rel="preload" as="image" href="images/hero-bg-1920.webp" media="(min-width: 900px)" />
+<link rel="preload" as="image" href="images/hero-bg-900.webp" media="(max-width: 899px)" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HomeAndConstructionBusiness",
+  "name": "MSOL92",
+  "legalName": "MSOL",
+  "url": "https://msol92.fr/",
+  "description": "Artisan parqueteur à Levallois-Perret : pose, rénovation, ponçage et vitrification de parquet en Île-de-France.",
+  "image": "https://msol92.fr/images/hero-bg-1920.webp",
+  "logo": "https://msol92.fr/images/logo-msol-sm.png",
+  "telephone": "+33635261363",
+  "email": "Msol.said@gmail.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "7 Rue Victor Hugo",
+    "addressLocality": "Levallois-Perret",
+    "postalCode": "92300",
+    "addressRegion": "Île-de-France",
+    "addressCountry": "FR"
+  },
+  "areaServed": [
+    "Levallois-Perret", "Neuilly-sur-Seine", "Paris 8e", "Paris 16e", "Paris 17e",
+    "Boulogne-Billancourt", "Saint-Cloud", "Courbevoie",
+    "Hauts-de-Seine", "Yvelines", "Val-d'Oise"
+  ],
+  "priceRange": "€€",
+  "sameAs": ["https://www.youtube.com/@parqueteurmsol7296"]
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700&display=swap" rel="stylesheet" />
 <style>
   /* ===== RESET ===== */
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  html { scroll-behavior: smooth; scroll-padding-top: 96px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
   body {
     font-family: 'Plus Jakarta Sans', sans-serif;
     font-weight: 300;
@@ -29,6 +65,12 @@
   img { display: block; max-width: 100%; height: auto; }
   a { color: inherit; text-decoration: none; }
   button { font-family: inherit; cursor: pointer; border: none; background: none; }
+  :focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; border-radius: 4px; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+    .reveal { opacity: 1 !important; transform: none !important; filter: none !important; }
+  }
 
   /* ===== TOKENS ===== */
   :root {
@@ -59,15 +101,17 @@
       z-index: 100;
       opacity: 0.035;
       background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.95' numOctaves='3' /%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      /* couche GPU isolée : pas de repeint pendant le scroll */
+      transform: translateZ(0);
+      will-change: transform;
     }
   }
 
-  /* Mobile perf: alleg backdrop-filters + reveal blur */
+  /* Mobile perf: allège backdrop-filters */
   @media (max-width: 899px) {
     .nav { backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
     .mobile-menu { backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
     .eyebrow, .hero-eyebrow { backdrop-filter: none; -webkit-backdrop-filter: none; }
-    .reveal { filter: none !important; }
     .reveal:not(.in) { transform: translateY(20px); }
   }
   .hero-bg { backface-visibility: hidden; transform: translateZ(0) scale(1.05); }
@@ -130,6 +174,7 @@
     padding: 8px 14px;
     border-radius: 999px;
     color: var(--ink-soft);
+    white-space: nowrap;
     transition: all 300ms var(--ease);
   }
   .nav-links a:hover { color: var(--ink); background: rgba(26,22,18,0.04); }
@@ -157,11 +202,11 @@
   .arrow svg { width: 12px; height: 12px; stroke: currentColor; fill: none; stroke-width: 1.5; }
   .menu-toggle { display: none; }
   @media (max-width: 880px) {
-    .nav { padding: 10px 12px 10px 20px; }
+    .nav { top: 12px; padding: 8px 10px 8px 16px; max-width: calc(100vw - 24px); }
     .nav-links, .nav .cta { display: none; }
     .menu-toggle {
       display: flex; align-items: center; justify-content: center;
-      width: 36px; height: 36px; border-radius: 999px;
+      width: 44px; height: 44px; border-radius: 999px;
       background: rgba(26,22,18,0.06);
     }
     .menu-toggle span {
@@ -208,6 +253,7 @@
 
   /* ===== HERO ===== */
   .hero {
+    min-height: 100vh;
     min-height: 100dvh;
     display: flex; flex-direction: column; justify-content: flex-end;
     position: relative;
@@ -217,19 +263,28 @@
   }
   .hero-bg {
     position: absolute; inset: 0; z-index: 0;
-    background: url('images/ponceuse-2.png') center/cover no-repeat;
+    background: url('images/hero-bg-1920.webp') center/cover no-repeat;
     background-color: #1a1208;
     will-change: transform;
   }
+  @media (max-width: 899px) {
+    .hero-bg { background-image: url('images/hero-bg-900.webp'); }
+  }
   .hero-bg::after {
     content: ''; position: absolute; inset: 0;
-    background: linear-gradient(180deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.1) 40%, rgba(0,0,0,0.7) 100%);
+    background: linear-gradient(180deg, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.18) 40%, rgba(0,0,0,0.75) 100%);
   }
   .hero-content {
     position: relative; z-index: 1;
     padding: 160px 32px 80px;
     color: var(--cream);
     max-width: 1280px; margin: 0 auto; width: 100%;
+  }
+  @media (max-width: 768px) {
+    .hero-content { padding: 120px 20px 96px; }
+    .hero h1 { font-size: clamp(2.6rem, 11vw, 3.5rem); }
+    .hero p.lead { margin-bottom: 36px; }
+    .hero-ctas .btn { width: 100%; justify-content: space-between; }
   }
   .hero-eyebrow {
     color: #E8C896;
@@ -241,6 +296,9 @@
     padding: 8px 18px;
     letter-spacing: 0.28em;
     box-shadow: 0 4px 18px rgba(0,0,0,0.25);
+  }
+  @media (max-width: 768px) {
+    .hero-eyebrow { font-size: 0.62rem; letter-spacing: 0.18em; padding: 7px 14px; margin-bottom: 24px; }
   }
   .hero h1 {
     color: var(--cream);
@@ -286,6 +344,7 @@
   }
   .hero-scroll .line { width: 1px; height: 32px; background: rgba(253,251,247,0.4); animation: lineDown 2s var(--ease) infinite; transform-origin: top; }
   @keyframes lineDown { 0%, 100% { transform: scaleY(0.3); opacity: 0.3; } 50% { transform: scaleY(1); opacity: 1; } }
+  @media (max-width: 768px) { .hero-scroll { display: none; } }
 
   /* ===== STATS STRIP ===== */
   .stats {
@@ -364,7 +423,11 @@
   }
   .service-card:nth-child(1), .service-card:nth-child(4) { grid-column: span 7; }
   .service-card:nth-child(2), .service-card:nth-child(3) { grid-column: span 5; }
-  @media (max-width: 880px) { .service-card { grid-column: span 12 !important; } }
+  @media (max-width: 880px) {
+    .service-card { grid-column: span 12 !important; }
+    .service-card-inner { padding: 28px 24px; min-height: 0; }
+    .service-card .icon.icon-img { width: 64px; height: 64px; margin-bottom: 16px; }
+  }
 
   /* ===== GALLERY ===== */
   .gallery { background: var(--ink); color: var(--cream); }
@@ -406,20 +469,24 @@
   }
   .g-item:hover .caption { opacity: 1; transform: translateY(0); }
 
+  /* Grandes photos (haute résolution) dans les grandes cases, petites photos (243px) dans les cases basses */
   .g-1 { grid-column: span 7; grid-row: span 3; }
-  .g-2 { grid-column: span 5; grid-row: span 2; }
-  .g-3 { grid-column: span 5; grid-row: span 2; }
-  .g-4 { grid-column: span 4; grid-row: span 2; }
-  .g-5 { grid-column: span 4; grid-row: span 2; }
-  .g-6 { grid-column: span 4; grid-row: span 2; }
-  .g-7 { grid-column: span 12; grid-row: span 3; }
-  .g-8 { grid-column: span 6; grid-row: span 3; }
-  .g-9 { grid-column: span 6; grid-row: span 3; }
-  .g-10 { grid-column: span 5; grid-row: span 2; }
-  .g-11 { grid-column: span 7; grid-row: span 2; }
+  .g-2 { grid-column: span 5; grid-row: span 3; }
+  .g-3 { grid-column: span 6; grid-row: span 2; }
+  .g-4 { grid-column: span 6; grid-row: span 2; }
+  .g-5 { grid-column: span 6; grid-row: span 2; }
+  .g-6 { grid-column: span 6; grid-row: span 2; }
+  .g-7 { grid-column: span 4; grid-row: span 1; }
+  .g-8 { grid-column: span 4; grid-row: span 1; }
+  .g-9 { grid-column: span 4; grid-row: span 1; }
   @media (max-width: 880px) {
-    .gallery-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 220px; }
-    .g-1, .g-2, .g-3, .g-4, .g-5, .g-6, .g-7, .g-8, .g-9, .g-10, .g-11 { grid-column: span 2; grid-row: span 1; }
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 150px; gap: 10px; }
+    .g-1 { grid-column: span 2; grid-row: span 2; }
+    .g-2, .g-3, .g-5, .g-6, .g-7, .g-8 { grid-column: span 1; grid-row: span 1; }
+    .g-4, .g-9 { grid-column: span 2; grid-row: span 1; }
+    /* Légendes toujours visibles sur tactile (pas de hover) */
+    .g-item::after { opacity: 1; }
+    .g-item .caption { opacity: 1; transform: none; bottom: 12px; left: 14px; right: 14px; font-size: 0.95rem; }
   }
 
   /* ===== ABOUT ===== */
@@ -465,25 +532,6 @@
   .about .sig-role { font-size: 0.8rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--ink-mute); margin-top: 4px; }
   @media (max-width: 880px) { .about-grid { grid-template-columns: 1fr; gap: 48px; } }
 
-  /* ===== TESTIMONIAL ===== */
-  .testimonial { background: var(--cream); text-align: center; padding: 120px 0; }
-  .testimonial .stars {
-    display: flex; gap: 4px; justify-content: center; margin-bottom: 32px;
-    color: var(--gold);
-  }
-  .testimonial .stars svg { width: 18px; height: 18px; fill: currentColor; }
-  .testimonial blockquote {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(1.6rem, 3vw, 2.4rem);
-    font-weight: 400;
-    font-style: italic;
-    color: var(--ink);
-    max-width: 900px;
-    margin: 0 auto 40px;
-    line-height: 1.35;
-  }
-  .testimonial .author { font-size: 0.9rem; color: var(--ink-mute); letter-spacing: 0.1em; text-transform: uppercase; }
-
   /* ===== DEVIS / CONTACT ===== */
   .quote { background: var(--ink); color: var(--cream); }
   .quote .eyebrow { color: var(--gold-soft); border-color: rgba(255,255,255,0.16); background: rgba(255,255,255,0.04); }
@@ -518,7 +566,7 @@
     width: 100%;
     background: transparent; border: none; outline: none;
     color: var(--cream);
-    font-family: inherit; font-size: 0.95rem; font-weight: 300;
+    font-family: inherit; font-size: 1rem; font-weight: 300; /* 16px min : évite le zoom auto iOS au focus */
   }
   .field textarea { resize: vertical; min-height: 100px; }
   .field select { appearance: none; cursor: pointer; }
@@ -584,13 +632,14 @@
   .yt-float { background: #FF0000; box-shadow: 0 12px 32px -8px rgba(255,0,0,0.5), 0 4px 12px rgba(0,0,0,0.15); }
   .yt-float:hover { box-shadow: 0 18px 40px -8px rgba(255,0,0,0.7); }
   @media (max-width: 768px) {
-    .float-stack { bottom: 16px; right: 16px; gap: 10px; }
+    .float-stack { bottom: calc(16px + env(safe-area-inset-bottom, 0px)); right: 16px; gap: 10px; }
     .float-btn { width: 52px; height: 52px; }
   }
 
   /* ===== REVEAL ===== */
-  .reveal { opacity: 0; transform: translateY(40px); filter: blur(6px); transition: opacity 1000ms var(--ease-soft), transform 1000ms var(--ease-soft), filter 1000ms var(--ease-soft); }
-  .reveal.in { opacity: 1; transform: translateY(0); filter: blur(0); }
+  /* opacity + translation seulement (pas de blur animé : trop coûteux GPU = à-coups au scroll) */
+  .reveal { opacity: 0; transform: translateY(28px); transition: opacity 700ms var(--ease-soft), transform 700ms var(--ease-soft); will-change: opacity, transform; }
+  .reveal.in { opacity: 1; transform: translateY(0); will-change: auto; }
 
 </style>
 </head>
@@ -598,17 +647,18 @@
 
 <!-- ===== NAV ===== -->
 <nav class="nav" id="nav">
-  <a href="#hero" class="brand" aria-label="MSOL92"><img src="images/logo-msol.png" alt="MSOL92" class="brand-logo" /></a>
+  <a href="#hero" class="brand" aria-label="MSOL92"><img src="images/logo-msol-sm.png" alt="MSOL92" class="brand-logo" width="44" height="44" /></a>
   <div class="nav-links">
     <a href="#services">Services</a>
     <a href="#gallery">Réalisations</a>
     <a href="#about">À propos</a>
     <a href="blog/">Blog</a>
     <a href="#reviews">Avis</a>
+    <a href="#zone">Zone</a>
     <a href="#contact">Contact</a>
   </div>
   <a href="#quote" class="cta">Devis gratuit <span class="arrow"><svg viewBox="0 0 12 12"><path d="M2 10 L10 2 M10 2 H4 M10 2 V8" stroke-linecap="round"/></svg></span></a>
-  <button class="menu-toggle" id="menuToggle" aria-label="Menu"><span></span></button>
+  <button class="menu-toggle" id="menuToggle" aria-label="Menu" aria-expanded="false" aria-controls="mobileMenu"><span></span></button>
 </nav>
 
 <!-- Floating buttons -->
@@ -675,7 +725,7 @@
         <div class="service-card-inner">
           <span class="num-badge">01</span>
           <div>
-            <div class="icon icon-img"><img src="images/icon-pose.png" alt="Pose de parquet" /></div>
+            <div class="icon icon-img"><img loading="lazy" src="images/icon-pose.webp" alt="" width="84" height="84" /></div>
             <h3>Pose de parquet</h3>
             <p>Pose collée, clouée ou flottante. Chêne massif, contrecollé, point de Hongrie, chevron, bâtons rompus — tous formats et essences nobles.</p>
           </div>
@@ -686,7 +736,7 @@
         <div class="service-card-inner">
           <span class="num-badge">02</span>
           <div>
-            <div class="icon icon-img"><img src="images/icon-poncage.png" alt="Ponçage" /></div>
+            <div class="icon icon-img"><img loading="lazy" src="images/icon-poncage.webp" alt="" width="84" height="84" /></div>
             <h3>Ponçage</h3>
             <p>Remise à nu intégrale, élimination des rayures et reliefs, préparation parfaite pour la finition.</p>
           </div>
@@ -697,7 +747,7 @@
         <div class="service-card-inner">
           <span class="num-badge">03</span>
           <div>
-            <div class="icon icon-img"><img src="images/icon-vitrification.png" alt="Vitrification" /></div>
+            <div class="icon icon-img"><img loading="lazy" src="images/icon-vitrification.webp" alt="" width="84" height="84" /></div>
             <h3>Vitrification</h3>
             <p>Vernis mat, satiné ou brillant. Protection durable, longévité accrue, rendu impeccable.</p>
           </div>
@@ -708,7 +758,7 @@
         <div class="service-card-inner">
           <span class="num-badge">04</span>
           <div>
-            <div class="icon icon-img"><img src="images/icon-renovation.png" alt="Rénovation" /></div>
+            <div class="icon icon-img"><img loading="lazy" src="images/icon-renovation.webp" alt="" width="84" height="84" /></div>
             <h3>Rénovation</h3>
             <p>Sauvetage des parquets anciens, restauration patrimoniale, réparations sur mesure. Redonner vie au bois.</p>
           </div>
@@ -730,16 +780,15 @@
     </div>
 
     <div class="gallery-grid">
-      <div class="g-item g-1 reveal"><img loading="lazy" decoding="async" src="images/hero-panorama.png?v=3" alt="Ponçage de parquet sur péniche, vue Seine" /><span class="caption">Péniche · Ponçage panoramique</span></div>
-      <div class="g-item g-2 reveal"><img loading="lazy" decoding="async" src="images/ponceuse-1.webp?v=3" alt="Artisan parqueteur ponceuse" /><span class="caption">Restauration · Hublot</span></div>
-      <div class="g-item g-3 reveal"><img loading="lazy" decoding="async" src="images/ponceuse-2.png?v=3" alt="Artisan en pleine action" /><span class="caption">Geste artisanal</span></div>
-      <div class="g-item g-4 reveal"><img loading="lazy" decoding="async" src="images/chevron-zoom.jpg?v=3" alt="Parquet chevron classique" /><span class="caption">Chevron · Détail</span></div>
-      <div class="g-item g-5 reveal"><img loading="lazy" decoding="async" src="images/hongroise-clair.jpg?v=3" alt="Point de Hongrie clair" /><span class="caption">Point de Hongrie</span></div>
-      <div class="g-item g-6 reveal"><img loading="lazy" decoding="async" src="images/hongroise-miel.webp?v=3" alt="Point de Hongrie miel" /><span class="caption">Finition miel</span></div>
-      <div class="g-item g-8 reveal"><img loading="lazy" decoding="async" src="images/said-chevron.webp" alt="Saïd posant un parquet chevron" /><span class="caption">Pose chevron · Geste de précision</span></div>
-      <div class="g-item g-9 reveal"><img loading="lazy" decoding="async" src="images/said-vitrification.webp" alt="Vitrification au rouleau sur péniche" /><span class="caption">Vitrification · Péniche</span></div>
-      <div class="g-item g-10 reveal"><img loading="lazy" decoding="async" src="images/said-produits.webp" alt="Produits Blanchon pour vitrification" /><span class="caption">Sélection Blanchon · Produits nobles</span></div>
-      <div class="g-item g-11 reveal"><img loading="lazy" decoding="async" src="images/salon-cheminee.jpg" alt="Salon avec cheminée et parquet vitrifié" /><span class="caption">Salon · Parquet vitrifié satiné</span></div>
+      <div class="g-item g-1 reveal"><img loading="lazy" decoding="async" src="images/hero-panorama.webp" alt="Ponçage de parquet sur péniche face à la Seine" /><span class="caption">Péniche · Ponçage face à la Seine</span></div>
+      <div class="g-item g-2 reveal"><img loading="lazy" decoding="async" src="images/said-chevron.webp" alt="Saïd posant un parquet point de Hongrie en chêne" /><span class="caption">Pose point de Hongrie · Précision millimétrée</span></div>
+      <div class="g-item g-3 reveal"><img loading="lazy" decoding="async" src="images/ponceuse-1.webp" alt="Ponçage à la monobrosse sur péniche, hublots sur la Seine" /><span class="caption">Péniche · Ponçage aux hublots</span></div>
+      <div class="g-item g-4 reveal"><img loading="lazy" decoding="async" src="images/said-vitrification.webp" alt="Vitrification au rouleau sur péniche face à la Seine" /><span class="caption">Vitrification · Péniche</span></div>
+      <div class="g-item g-5 reveal"><img loading="lazy" decoding="async" src="images/said-produits.webp" alt="Saïd et sa sélection de produits Blanchon" /><span class="caption">Finitions Blanchon · Produits professionnels</span></div>
+      <div class="g-item g-6 reveal"><img loading="lazy" decoding="async" src="images/hongroise-miel.webp" alt="Réparation de lames de parquet à l'outil à main" /><span class="caption">Restauration · Remplacement de lames</span></div>
+      <div class="g-item g-7 reveal"><img loading="lazy" decoding="async" src="images/chevron-zoom.jpg" alt="Parquet point de Hongrie en chêne patiné" /><span class="caption">Point de Hongrie · Chêne patiné</span></div>
+      <div class="g-item g-8 reveal"><img loading="lazy" decoding="async" src="images/hongroise-clair.jpg" alt="Parquet point de Hongrie en chêne doré" /><span class="caption">Point de Hongrie · Chêne doré</span></div>
+      <div class="g-item g-9 reveal"><img loading="lazy" decoding="async" src="images/salon-cheminee.jpg" alt="Salon avec cheminée et parquet vitrifié satiné" /><span class="caption">Salon · Vitrifié satiné</span></div>
     </div>
   </div>
 </section>
@@ -781,7 +830,6 @@
       </div>
       <div class="reveal" style="display:flex; flex-direction:column; gap:16px;">
         <div style="display:flex; align-items:center; gap:16px;">
-          <div class="rating-big">4,9</div>
           <div>
             <div class="rev-stars">
               <svg viewBox="0 0 24 24"><path d="M12 2l2.6 7.4h7.8l-6.3 4.6 2.4 7.4-6.5-4.7-6.5 4.7 2.4-7.4-6.3-4.6h7.8z"/></svg>
@@ -790,7 +838,8 @@
               <svg viewBox="0 0 24 24"><path d="M12 2l2.6 7.4h7.8l-6.3 4.6 2.4 7.4-6.5-4.7-6.5 4.7 2.4-7.4-6.3-4.6h7.8z"/></svg>
               <svg viewBox="0 0 24 24"><path d="M12 2l2.6 7.4h7.8l-6.3 4.6 2.4 7.4-6.5-4.7-6.5 4.7 2.4-7.4-6.3-4.6h7.8z"/></svg>
             </div>
-            <div style="font-size:0.85rem; color:var(--ink-mute); margin-top:6px; letter-spacing:0.08em;">Moyenne sur 68 avis vérifiés</div>
+            <div style="font-size:0.85rem; color:var(--ink-mute); margin-top:8px; letter-spacing:0.08em;">Avis Google de clients MSOL92</div>
+            <a href="https://www.google.com/maps/search/?api=1&amp;query=MSOL92+Levallois-Perret" target="_blank" rel="noopener" style="display:inline-block; margin-top:12px; font-size:0.85rem; color:var(--gold); letter-spacing:0.04em;">Voir tous les avis sur Google →</a>
           </div>
         </div>
       </div>
@@ -799,38 +848,38 @@
     <div class="reviews-grid">
       <article class="review-card reveal">
         <div class="rev-stars"><svg viewBox="0 0 24 24"><path d="M12 2l2.6 7.4h7.8l-6.3 4.6 2.4 7.4-6.5-4.7-6.5 4.7 2.4-7.4-6.3-4.6h7.8z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l2.6 7.4h7.8l-6.3 4.6 2.4 7.4-6.5-4.7-6.5 4.7 2.4-7.4-6.3-4.6h7.8z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l2.6 7.4h7.8l-6.3 4.6 2.4 7.4-6.5-4.7-6.5 4.7 2.4-7.4-6.3-4.6h7.8z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l2.6 7.4h7.8l-6.3 4.6 2.4 7.4-6.5-4.7-6.5 4.7 2.4-7.4-6.3-4.6h7.8z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l2.6 7.4h7.8l-6.3 4.6 2.4 7.4-6.5-4.7-6.5 4.7 2.4-7.4-6.3-4.6h7.8z"/></svg></div>
-        <blockquote>« Un travail d'orfèvre. Saïd a redonné une seconde vie à notre parquet en chêne du XIX<sup>e</sup>. Précision, conseils, propreté — tout était irréprochable. »</blockquote>
-        <div class="rev-author"><div class="avatar">L</div><div><div class="rev-name">Famille Lefèvre</div><div class="rev-meta">Paris 8<sup>e</sup> · Rénovation complète</div></div></div>
+        <blockquote>« Notre projet de réparation et de rénovation de parquet s'est parfaitement déroulé, de la prise de contact au retour dans notre appartement. »</blockquote>
+        <div class="rev-author"><div class="avatar">L</div><div><div class="rev-name">Laetitia Kappauf</div><div class="rev-meta">Avis Google · Réparation &amp; rénovation</div></div></div>
       </article>
 
       <article class="review-card reveal">
         <div class="rev-stars"><svg viewBox="0 0 24 24"><path d="M12 2l2.6 7.4h7.8l-6.3 4.6 2.4 7.4-6.5-4.7-6.5 4.7 2.4-7.4-6.3-4.6h7.8z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l2.6 7.4h7.8l-6.3 4.6 2.4 7.4-6.5-4.7-6.5 4.7 2.4-7.4-6.3-4.6h7.8z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l2.6 7.4h7.8l-6.3 4.6 2.4 7.4-6.5-4.7-6.5 4.7 2.4-7.4-6.3-4.6h7.8z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l2.6 7.4h7.8l-6.3 4.6 2.4 7.4-6.5-4.7-6.5 4.7 2.4-7.4-6.3-4.6h7.8z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l2.6 7.4h7.8l-6.3 4.6 2.4 7.4-6.5-4.7-6.5 4.7 2.4-7.4-6.3-4.6h7.8z"/></svg></div>
-        <blockquote>« Pose d'un point de Hongrie en chêne massif sur 80 m². Résultat sublime, finition impeccable, délai tenu au jour près. Je recommande sans réserve. »</blockquote>
-        <div class="rev-author"><div class="avatar">C</div><div><div class="rev-name">Camille D.</div><div class="rev-meta">Neuilly-sur-Seine · Pose neuve</div></div></div>
+        <blockquote>« Avec l'équipe Msol, vous n'avez absolument rien à craindre. Leur service est excellent et leurs prix sont imbattables. Ponçage, polissage, installation : tout est impeccable. »</blockquote>
+        <div class="rev-author"><div class="avatar">E</div><div><div class="rev-name">Ebrahim ElDosokyi</div><div class="rev-meta">Avis Google · Ponçage / installation</div></div></div>
       </article>
 
       <article class="review-card reveal">
         <div class="rev-stars"><svg viewBox="0 0 24 24"><path d="M12 2l2.6 7.4h7.8l-6.3 4.6 2.4 7.4-6.5-4.7-6.5 4.7 2.4-7.4-6.3-4.6h7.8z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l2.6 7.4h7.8l-6.3 4.6 2.4 7.4-6.5-4.7-6.5 4.7 2.4-7.4-6.3-4.6h7.8z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l2.6 7.4h7.8l-6.3 4.6 2.4 7.4-6.5-4.7-6.5 4.7 2.4-7.4-6.3-4.6h7.8z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l2.6 7.4h7.8l-6.3 4.6 2.4 7.4-6.5-4.7-6.5 4.7 2.4-7.4-6.3-4.6h7.8z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l2.6 7.4h7.8l-6.3 4.6 2.4 7.4-6.5-4.7-6.5 4.7 2.4-7.4-6.3-4.6h7.8z"/></svg></div>
-        <blockquote>« Ponçage et vitrification sur péniche, conditions complexes. Saïd a tout maîtrisé : matière, espace, lumière. Du grand art. »</blockquote>
-        <div class="rev-author"><div class="avatar">M</div><div><div class="rev-name">Marc &amp; Hélène B.</div><div class="rev-meta">Péniche · Quai de Seine</div></div></div>
+        <blockquote>« Franchement un travail d'artiste. La société MSOL, spécialiste en rénovation, ponçage et pose de parquet. »</blockquote>
+        <div class="rev-author"><div class="avatar">K</div><div><div class="rev-name">Karim Azzaz</div><div class="rev-meta">Avis Google · Rénovation</div></div></div>
       </article>
 
       <article class="review-card reveal">
         <div class="rev-stars"><svg viewBox="0 0 24 24"><path d="M12 2l2.6 7.4h7.8l-6.3 4.6 2.4 7.4-6.5-4.7-6.5 4.7 2.4-7.4-6.3-4.6h7.8z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l2.6 7.4h7.8l-6.3 4.6 2.4 7.4-6.5-4.7-6.5 4.7 2.4-7.4-6.3-4.6h7.8z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l2.6 7.4h7.8l-6.3 4.6 2.4 7.4-6.5-4.7-6.5 4.7 2.4-7.4-6.3-4.6h7.8z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l2.6 7.4h7.8l-6.3 4.6 2.4 7.4-6.5-4.7-6.5 4.7 2.4-7.4-6.3-4.6h7.8z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l2.6 7.4h7.8l-6.3 4.6 2.4 7.4-6.5-4.7-6.5 4.7 2.4-7.4-6.3-4.6h7.8z"/></svg></div>
-        <blockquote>« Devis clair, conseils précieux sur le choix de l'essence et de la finition. Chantier propre, équipe ponctuelle. Le parquet est magnifique. »</blockquote>
-        <div class="rev-author"><div class="avatar">S</div><div><div class="rev-name">Sophie M.</div><div class="rev-meta">Levallois-Perret · Vitrification</div></div></div>
+        <blockquote>« Ce monsieur est très sérieux et fait un bon travail, attentif aux détails et aux consignes. Rien à redire, je suis très content et je le recommande vivement. »</blockquote>
+        <div class="rev-author"><div class="avatar">I</div><div><div class="rev-name">Ioana Filipenco</div><div class="rev-meta">Avis Google · Pose</div></div></div>
       </article>
 
       <article class="review-card reveal">
         <div class="rev-stars"><svg viewBox="0 0 24 24"><path d="M12 2l2.6 7.4h7.8l-6.3 4.6 2.4 7.4-6.5-4.7-6.5 4.7 2.4-7.4-6.3-4.6h7.8z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l2.6 7.4h7.8l-6.3 4.6 2.4 7.4-6.5-4.7-6.5 4.7 2.4-7.4-6.3-4.6h7.8z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l2.6 7.4h7.8l-6.3 4.6 2.4 7.4-6.5-4.7-6.5 4.7 2.4-7.4-6.3-4.6h7.8z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l2.6 7.4h7.8l-6.3 4.6 2.4 7.4-6.5-4.7-6.5 4.7 2.4-7.4-6.3-4.6h7.8z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l2.6 7.4h7.8l-6.3 4.6 2.4 7.4-6.5-4.7-6.5 4.7 2.4-7.4-6.3-4.6h7.8z"/></svg></div>
-        <blockquote>« Restauration d'un parquet haussmannien très abîmé. Le rendu dépasse nos espérances. Vrai artisan, vraie passion. »</blockquote>
-        <div class="rev-author"><div class="avatar">A</div><div><div class="rev-name">Antoine R.</div><div class="rev-meta">Paris 16<sup>e</sup> · Restauration</div></div></div>
+        <blockquote>« Superbe travail, très bonne connaissance du bois. Rénovation complète d'un vieux parquet en chêne centenaire. Travail parfait ! »</blockquote>
+        <div class="rev-author"><div class="avatar">M</div><div><div class="rev-name">MaxiTrad Paris</div><div class="rev-meta">Avis Google · Restauration</div></div></div>
       </article>
 
       <article class="review-card reveal">
         <div class="rev-stars"><svg viewBox="0 0 24 24"><path d="M12 2l2.6 7.4h7.8l-6.3 4.6 2.4 7.4-6.5-4.7-6.5 4.7 2.4-7.4-6.3-4.6h7.8z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l2.6 7.4h7.8l-6.3 4.6 2.4 7.4-6.5-4.7-6.5 4.7 2.4-7.4-6.3-4.6h7.8z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l2.6 7.4h7.8l-6.3 4.6 2.4 7.4-6.5-4.7-6.5 4.7 2.4-7.4-6.3-4.6h7.8z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l2.6 7.4h7.8l-6.3 4.6 2.4 7.4-6.5-4.7-6.5 4.7 2.4-7.4-6.3-4.6h7.8z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l2.6 7.4h7.8l-6.3 4.6 2.4 7.4-6.5-4.7-6.5 4.7 2.4-7.4-6.3-4.6h7.8z"/></svg></div>
-        <blockquote>« Chevron en chêne huilé pour notre salon. Rendu chaleureux, pose millimétrée. Merci pour ce travail d'exception. »</blockquote>
-        <div class="rev-author"><div class="avatar">J</div><div><div class="rev-name">Julien P.</div><div class="rev-meta">Boulogne-Billancourt · Pose chevron</div></div></div>
+        <blockquote>« Excellent professionnel. Ponctuel, sérieux et surtout un niveau de finition sans égal. »</blockquote>
+        <div class="rev-author"><div class="avatar">O</div><div><div class="rev-name">Omar Bengelloun</div><div class="rev-meta">Avis Google · Finitions</div></div></div>
       </article>
     </div>
   </div>
@@ -842,6 +891,7 @@
   .rev-stars { display:flex; gap:3px; color:var(--gold); }
   .rev-stars svg { width:16px; height:16px; fill:currentColor; }
   .reviews-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+  @media (max-width:1100px) { .reviews-grid { grid-template-columns:repeat(2,1fr); } }
   .review-card { background:#fff; border:1px solid var(--hairline); border-radius:24px; padding:32px; transition:all 500ms var(--ease); display:flex; flex-direction:column; gap:20px; }
   .review-card:hover { transform:translateY(-4px); box-shadow:var(--shadow-soft); border-color:var(--hairline-strong); }
   .review-card blockquote { font-family:'Cormorant Garamond',serif; font-size:1.15rem; font-style:italic; color:var(--ink); line-height:1.5; flex:1; }
@@ -849,111 +899,7 @@
   .avatar { width:42px; height:42px; border-radius:999px; background:linear-gradient(135deg,var(--gold) 0%,var(--gold-soft) 100%); color:#fff; display:inline-flex; align-items:center; justify-content:center; font-family:'Cormorant Garamond',serif; font-size:1.2rem; font-weight:500; }
   .rev-name { font-weight:500; font-size:0.95rem; color:var(--ink); }
   .rev-meta { font-size:0.78rem; color:var(--ink-mute); letter-spacing:0.05em; margin-top:2px; }
-  @media (max-width:880px) { .reviews-grid { grid-template-columns:1fr; } }
-
-  /* =========================================================
-     ===== MOBILE OPTIMIZATIONS (Pass 2 — June 2026) ========
-     ========================================================= */
-
-  /* Prevent horizontal overflow + iOS smooth scrolling */
-  html, body { overflow-x: hidden; -webkit-text-size-adjust: 100%; }
-  body { -webkit-overflow-scrolling: touch; }
-  img, video, svg { max-width: 100%; height: auto; }
-
-  /* Prevent iOS auto-zoom on input focus — needs font-size >= 16px */
-  input, select, textarea {
-    font-size: 16px !important;
-  }
-  .field input, .field select, .field textarea {
-    font-size: 16px;
-  }
-
-  /* Touch devices: replace hover with active states */
-  @media (hover: none) and (pointer: coarse) {
-    .nav-links a:hover,
-    .service-card:hover,
-    .review-card:hover,
-    .float-btn:hover,
-    .submit-btn:hover,
-    .gallery-item:hover,
-    .yt-link:hover {
-      transform: none !important;
-    }
-    .nav .cta:active,
-    .submit-btn:active { transform: scale(0.97); transition: transform 100ms ease; }
-    .service-card:active,
-    .review-card:active { background: rgba(184, 134, 11, 0.03); }
-    a, button { -webkit-tap-highlight-color: rgba(184, 134, 11, 0.15); }
-  }
-
-  /* Ensure minimum tap target size 44x44px (WCAG/Apple HIG) */
-  @media (max-width: 880px) {
-    .nav-links a, .mobile-menu a, .foot-grid a,
-    .menu-toggle, .yt-link, .pill {
-      min-height: 44px;
-      display: inline-flex;
-      align-items: center;
-    }
-    .menu-toggle { width: 44px; height: 44px; }
-  }
-
-  /* Mobile menu polish */
-  @media (max-width: 880px) {
-    .mobile-menu {
-      padding: 24px;
-      gap: 8px;
-    }
-    .mobile-menu a {
-      padding: 14px 16px;
-      font-size: 1.05rem;
-    }
-  }
-
-  /* Small phones (≤480px) */
-  @media (max-width: 480px) {
-    .container { padding: 0 16px; }
-    section { padding: 64px 0; }
-    .hero { min-height: 88vh; }
-    h1 { font-size: clamp(2.4rem, 12vw, 3.5rem); line-height: 1.05; }
-    h2 { font-size: clamp(1.9rem, 8vw, 2.6rem); }
-    .eyebrow { font-size: 0.65rem; padding: 5px 12px; }
-    .hero-actions { flex-direction: column; align-items: stretch; gap: 12px; }
-    .hero-actions .cta, .hero-actions a { width: 100%; justify-content: center; }
-    .submit-btn { width: 100%; justify-content: center; padding: 18px 24px; }
-    .review-card { padding: 24px; }
-    .service-card { padding: 24px; }
-    .field { padding: 14px 16px; }
-    .foot-grid { grid-template-columns: 1fr; gap: 32px; }
-  }
-
-  /* Ultra small phones (≤360px) — iPhone SE 1st gen, older Android */
-  @media (max-width: 360px) {
-    .container { padding: 0 14px; }
-    h1 { font-size: 2.1rem; }
-    h2 { font-size: 1.7rem; }
-    .hero-badge span { font-size: 0.7rem; }
-    .nav { top: 12px; padding: 6px 10px; }
-    .brand-logo { width: 36px; height: 36px; }
-    .float-stack { bottom: 12px; right: 12px; }
-    .float-btn { width: 48px; height: 48px; }
-  }
-
-  /* Landscape phones — keep hero usable */
-  @media (max-width: 900px) and (orientation: landscape) and (max-height: 500px) {
-    .hero { min-height: 100vh; padding: 80px 0 40px; }
-    section { padding: 48px 0; }
-  }
-
-  /* Respect reduced motion */
-  @media (prefers-reduced-motion: reduce) {
-    *, *::before, *::after {
-      animation-duration: 0.01ms !important;
-      animation-iteration-count: 1 !important;
-      transition-duration: 0.01ms !important;
-      scroll-behavior: auto !important;
-    }
-    .reveal { opacity: 1; transform: none; filter: none; }
-  }
+  @media (max-width:700px) { .reviews-grid { grid-template-columns:1fr; gap:16px; } .review-card { padding:24px; } }
 </style>
 
 <!-- ===== DEVIS ===== -->
@@ -974,21 +920,21 @@
       <form class="reveal" id="devisForm" onsubmit="return sendDevis(event)">
         <div class="form-row">
           <div class="field">
-            <label>Nom</label>
-            <input type="text" name="nom" required />
+            <label for="f-nom">Nom</label>
+            <input type="text" id="f-nom" name="nom" autocomplete="name" required />
           </div>
           <div class="field">
-            <label>Téléphone</label>
-            <input type="tel" name="telephone" />
+            <label for="f-tel">Téléphone</label>
+            <input type="tel" id="f-tel" name="telephone" autocomplete="tel" inputmode="tel" />
           </div>
         </div>
         <div class="field">
-          <label>Email</label>
-          <input type="email" name="email" required />
+          <label for="f-email">Email</label>
+          <input type="email" id="f-email" name="email" autocomplete="email" inputmode="email" required />
         </div>
         <div class="field">
-          <label>Type de prestation</label>
-          <select name="prestation" required>
+          <label for="f-prestation">Type de prestation</label>
+          <select id="f-prestation" name="prestation" required>
             <option value="">Choisir…</option>
             <option>Pose de parquet</option>
             <option>Ponçage</option>
@@ -999,17 +945,17 @@
         </div>
         <div class="form-row">
           <div class="field">
-            <label>Surface approx. (m²)</label>
-            <input type="text" name="surface" placeholder="ex. 45 m²" />
+            <label for="f-surface">Surface approx. (m²)</label>
+            <input type="text" id="f-surface" name="surface" inputmode="numeric" placeholder="ex. 45 m²" />
           </div>
           <div class="field">
-            <label>Ville</label>
-            <input type="text" name="ville" />
+            <label for="f-ville">Ville</label>
+            <input type="text" id="f-ville" name="ville" autocomplete="address-level2" />
           </div>
         </div>
         <div class="field">
-          <label>Décrivez votre projet</label>
-          <textarea name="message" rows="4" placeholder="Quelques mots sur votre besoin, l'état du sol, vos délais…"></textarea>
+          <label for="f-message">Décrivez votre projet</label>
+          <textarea id="f-message" name="message" rows="4" placeholder="Quelques mots sur votre besoin, l'état du sol, vos délais…"></textarea>
         </div>
         <button type="submit" class="submit-btn">Envoyer la demande <span class="arrow"><svg viewBox="0 0 12 12" width="12" height="12" stroke="currentColor" fill="none" stroke-width="1.5"><path d="M2 10 L10 2 M10 2 H4 M10 2 V8" stroke-linecap="round"/></svg></span></button>
       </form>
@@ -1043,7 +989,7 @@
   <div class="container">
     <div class="foot-grid">
       <div>
-        <div class="foot-brand"><img src="images/logo-msol.png" alt="MSOL92" style="width:72px; height:72px; object-fit:contain; display:block;" /></div>
+        <div class="foot-brand"><img src="images/logo-msol-sm.png" alt="MSOL92" loading="lazy" style="width:72px; height:72px; object-fit:contain; display:block;" /></div>
         <p style="color:rgba(253,251,247,0.6); max-width:36ch; font-size:0.95rem;">L'art du parquet d'exception. Artisan parqueteur à Levallois-Perret, intervenant dans toute l'Île-de-France.</p>
       </div>
       <div>
@@ -1083,9 +1029,9 @@
     <div id="legal" style="margin-top:48px; padding-top:32px; border-top:1px solid rgba(255,255,255,0.08); font-size:0.8rem; color:rgba(253,251,247,0.55); line-height:1.7;">
       <h4 style="color:var(--cream); font-family:'Plus Jakarta Sans',sans-serif; font-size:0.78rem; font-weight:600; letter-spacing:0.2em; text-transform:uppercase; margin-bottom:16px;">Mentions légales</h4>
       <p style="color:rgba(253,251,247,0.6); max-width:80ch;">
-        <strong style="color:rgba(253,251,247,0.85);">Éditeur :</strong> MSOL — Saïd, artisan parqueteur · <strong>Adresse :</strong> 7 Rue Victor Hugo, 92300 Levallois-Perret · <strong>Téléphone :</strong> 06 35 26 13 63 · <strong>Email :</strong> Msol.said@gmail.com<br/>
-        <strong style="color:rgba(253,251,247,0.85);">SIRET :</strong> à compléter · <strong>Forme juridique :</strong> à compléter · <strong>TVA intracommunautaire :</strong> à compléter<br/>
-        <strong style="color:rgba(253,251,247,0.85);">Directeur de publication :</strong> Saïd · <strong>Hébergeur :</strong> Vercel Inc., 340 S Lemon Ave #4133, Walnut, CA 91789, USA<br/><br/>
+        <strong style="color:rgba(253,251,247,0.85);">Éditeur :</strong> MSOL — SAS au capital de 7 000 € · <strong>Siège social :</strong> 7 Rue Victor Hugo, 92300 Levallois-Perret · <strong>Téléphone :</strong> 06 35 26 13 63 · <strong>Email :</strong> Msol.said@gmail.com<br/>
+        <strong style="color:rgba(253,251,247,0.85);">SIRET :</strong> 847 961 620 00014 · <strong>SIREN :</strong> 847 961 620 · <strong>RCS Nanterre :</strong> 847 961 620 · <strong>TVA intracommunautaire :</strong> FR23847961620 · <strong>APE/NAF :</strong> 4333Z (Travaux de revêtement des sols et des murs)<br/>
+        <strong style="color:rgba(253,251,247,0.85);">Directeur de la publication :</strong> Hasna Maadarni (Présidente) · <strong>Hébergeur :</strong> Vercel Inc., 340 S Lemon Ave #4133, Walnut, CA 91789, USA — vercel.com · <strong>Domaine :</strong> msol92.fr (enregistré chez OVH SAS, 2 rue Kellermann, 59100 Roubaix)<br/><br/>
         <strong style="color:rgba(253,251,247,0.85);">Données personnelles (RGPD) :</strong> Les informations saisies dans le formulaire de devis sont utilisées uniquement pour répondre à votre demande. Elles ne sont ni cédées ni vendues à des tiers. Vous disposez d'un droit d'accès, de rectification et de suppression de vos données en écrivant à Msol.said@gmail.com.<br/>
         <strong style="color:rgba(253,251,247,0.85);">Propriété intellectuelle :</strong> L'ensemble du contenu (textes, photographies, identité visuelle) est la propriété de MSOL. Toute reproduction sans autorisation est interdite.
       </p>
@@ -1106,16 +1052,15 @@
   // Mobile menu
   const toggle = document.getElementById('menuToggle');
   const menu = document.getElementById('mobileMenu');
-  toggle.addEventListener('click', () => {
-    toggle.classList.toggle('open');
-    menu.classList.toggle('open');
-    document.body.style.overflow = menu.classList.contains('open') ? 'hidden' : '';
-  });
-  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-    toggle.classList.remove('open');
-    menu.classList.remove('open');
-    document.body.style.overflow = '';
-  }));
+  function setMenu(open) {
+    toggle.classList.toggle('open', open);
+    menu.classList.toggle('open', open);
+    toggle.setAttribute('aria-expanded', String(open));
+    document.body.style.overflow = open ? 'hidden' : '';
+  }
+  toggle.addEventListener('click', () => setMenu(!menu.classList.contains('open')));
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false)));
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') setMenu(false); });
 
   // Reveal on scroll (IntersectionObserver)
   const io = new IntersectionObserver((entries) => {
