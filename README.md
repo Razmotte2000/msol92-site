@@ -1,6 +1,6 @@
-# MSOL92 — site vitrine
+# MSOL — site vitrine
 
-Site vitrine de MSOL (artisan parqueteur, Levallois-Perret) — <https://msol92.fr>
+Site vitrine de MSOL (artisan parqueteur, Levallois-Perret) — <https://msol92.com>
 
 ## Stack
 
@@ -11,12 +11,27 @@ dans `images/`. Aucune dépendance, aucun `npm install`, aucune étape de compil
 index.html      page d'accueil (styles et scripts inline)
 blog/           index du blog et _template.html pour les articles
 images/         photos et logos (.webp servis, .png/.jpg sources)
-sitemap.xml     sitemap : accueil + /blog/
-robots.txt      indexation ouverte, crawlers IA explicitement autorisés (GEO)
+sitemap.xml     sitemap : accueil + /blog/ — GÉNÉRÉ, ne pas éditer à la main
+robots.txt      indexation ouverte, crawlers IA autorisés (GEO) — GÉNÉRÉ aussi
+build-sitemap.mjs  régénère sitemap.xml + robots.txt (`node build-sitemap.mjs`)
 CNAME           domaine personnalisé pour GitHub Pages
 vercel.json     redirections + cache — utilisé par Vercel uniquement
 .htaccess       équivalent Apache des règles ci-dessus — pour Hostinger
 ```
+
+## SEO — après chaque ajout d'article
+
+```bash
+node build-sitemap.mjs
+```
+
+Le script relit `blog/*.html` et réécrit `sitemap.xml` et `robots.txt` sur
+`https://msol92.com`. Le site est statique : il n'y a pas de `sitemap.ts` /
+`robots.ts` (conventions Next.js) — ce script en tient lieu.
+
+Ne pas supprimer `google2ed55e933f841caa.html` ni la balise
+`google-site-verification` du `<head>` : ce sont les preuves de propriété
+Search Console.
 
 ## Développement local
 

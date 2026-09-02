@@ -1,10 +1,13 @@
-# MSOL92 — robots.txt
-# Allow standard search engines + AI/LLM crawlers (GEO optimization)
+# MSOL — robots.txt
+# Généré par build-sitemap.mjs — ne pas éditer à la main.
 
 User-agent: *
 Allow: /
 
-# AI / LLM bots explicitly welcomed
+# Fichiers de travail : inutiles pour l'index
+Disallow: /blog/_template.html
+
+# Crawlers IA / LLM explicitement bienvenus (optimisation GEO)
 User-agent: GPTBot
 Allow: /
 
@@ -20,6 +23,9 @@ Allow: /
 User-agent: Claude-Web
 Allow: /
 
+User-agent: anthropic-ai
+Allow: /
+
 User-agent: PerplexityBot
 Allow: /
 
@@ -30,9 +36,6 @@ User-agent: Google-Extended
 Allow: /
 
 User-agent: GoogleOther
-Allow: /
-
-User-agent: anthropic-ai
 Allow: /
 
 User-agent: cohere-ai
@@ -50,4 +53,4 @@ Allow: /
 User-agent: Diffbot
 Allow: /
 
-Sitemap: https://msol92.fr/sitemap.xml
+Sitemap: https://msol92.com/sitemap.xml

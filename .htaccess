@@ -2,13 +2,24 @@
 
 RewriteEngine On
 
-# Canonical: strip .html from URLs (single-page site served at /)
+# index.html -> version sans index.html (/ et /blog/)
+RewriteCond %{THE_REQUEST} \s/+(.*/)?index\.html[\s?] [NC]
+RewriteRule ^(.*)index\.html$ /$1 [R=301,L]
+
+# Site one-page : une page .html POSEE A LA RACINE renvoie vers l'accueil.
+# La condition ^/[^/]+\.html$ limite la regle au premier niveau : /blog/,
+# /services/ et toute future sous-section gardent leurs URLs propres.
+# Seul le fichier de validation Google reste servi tel quel a la racine.
 RewriteCond %{THE_REQUEST} \s/+[^?\s]*\.html[\s?] [NC]
+RewriteCond %{REQUEST_URI} ^/[^/]+\.html$
+RewriteCond %{REQUEST_URI} !^/google[0-9a-f]+\.html$ [NC]
 RewriteRule ^ / [R=301,L]
 
-# Force HTTPS
-RewriteCond %{HTTPS} !=on
-RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+# Domaine canonique : force HTTPS + non-www + msol92.com, en une seule redirection.
+# Couvre aussi msol92.fr si le domaine est un jour repointe sur cet hebergement.
+RewriteCond %{HTTPS} !=on [OR]
+RewriteCond %{HTTP_HOST} !^msol92\.com$ [NC]
+RewriteRule ^ https://msol92.com%{REQUEST_URI} [R=301,L]
 
 <IfModule mod_headers.c>
   # Immutable long-cache for images (mirrors vercel.json headers)
