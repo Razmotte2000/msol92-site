@@ -1023,6 +1023,8 @@
       </div>
 
       <form class="reveal" id="devisForm" onsubmit="return sendDevis(event)">
+        <!-- Piège à robots : champ invisible, laissé vide par les humains -->
+        <div aria-hidden="true" style="position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden;"><label for="f-site">Site web</label><input type="text" id="f-site" name="site" tabindex="-1" autocomplete="off" /></div>
         <div class="form-row">
           <div class="field">
             <label for="f-nom">Nom</label>
@@ -1062,8 +1064,9 @@
           <label for="f-message">Décrivez votre projet</label>
           <textarea id="f-message" name="message" rows="4" placeholder="Quelques mots sur votre besoin, l'état du sol, vos délais…"></textarea>
         </div>
-        <p style="font-size:0.75rem; color:var(--ink-mute); line-height:1.6; margin:4px 0 16px;">Vos informations servent uniquement à préparer votre devis. Responsable : MSOL. Base légale : mesures précontractuelles prises à votre demande. Conservation : 3 ans après votre dernier contact. Vous pouvez y accéder, les rectifier, les effacer, vous opposer à leur traitement ou demander leur portabilité en écrivant à Msol.said@gmail.com, et saisir la CNIL (cnil.fr). Le bouton ouvre votre messagerie : la demande part de votre adresse e-mail. <a href="#legal" style="color:inherit; text-decoration:underline;">En savoir plus</a></p>
+        <p style="font-size:0.75rem; color:var(--ink-mute); line-height:1.6; margin:4px 0 16px;">Vos informations servent uniquement à préparer votre devis. Responsable : MSOL. Base légale : mesures précontractuelles prises à votre demande. Conservation : 3 ans après votre dernier contact. Vous pouvez y accéder, les rectifier, les effacer, vous opposer à leur traitement ou demander leur portabilité en écrivant à Msol.said@gmail.com, et saisir la CNIL (cnil.fr). La demande nous est transmise par e-mail. <a href="#legal" style="color:inherit; text-decoration:underline;">En savoir plus</a></p>
         <button type="submit" class="submit-btn">Envoyer la demande <span class="arrow"><svg viewBox="0 0 12 12" width="12" height="12" stroke="currentColor" fill="none" stroke-width="1.5"><path d="M2 10 L10 2 M10 2 H4 M10 2 V8" stroke-linecap="round"/></svg></span></button>
+        <p id="devisStatus" role="status" aria-live="polite" style="margin-top:14px; font-size:0.9rem; color:var(--ink);"></p>
       </form>
     </div>
   </div>
@@ -1140,7 +1143,7 @@
         <strong style="color:rgba(253,251,247,0.85);">Éditeur :</strong> MSOL — SAS au capital de 7 000 € · <strong>Siège social :</strong> 7 Rue Victor Hugo, 92300 Levallois-Perret · <strong>Téléphone :</strong> 06 35 26 13 63 · <strong>Email :</strong> Msol.said@gmail.com<br/>
         <strong style="color:rgba(253,251,247,0.85);">SIRET :</strong> 847 961 620 00014 · <strong>SIREN :</strong> 847 961 620 · <strong>RCS Nanterre :</strong> 847 961 620 · <strong>TVA intracommunautaire :</strong> FR23847961620 · <strong>APE/NAF :</strong> 4333Z (Travaux de revêtement des sols et des murs)<br/>
         <strong style="color:rgba(253,251,247,0.85);">Directeur de la publication :</strong> Hasna Maadarni (Présidente) · <strong>Hébergeur :</strong> Hostinger International Ltd, 61 Lordou Vironos Street, 6023 Larnaca, Chypre — hostinger.fr · <strong>Domaine :</strong> msol92.com (enregistré chez Hostinger)<br/><br/>
-        <strong style="color:rgba(253,251,247,0.85);">Données personnelles (RGPD) :</strong> Responsable du traitement : MSOL, 7 Rue Victor Hugo, 92300 Levallois-Perret, Msol.said@gmail.com. Les informations du formulaire de devis (nom, téléphone, e-mail, prestation, surface, ville, message) servent uniquement à étudier votre projet et à vous répondre ; le nom, l'e-mail et la prestation sont nécessaires pour cela. Base légale : mesures précontractuelles prises à votre demande (art. 6.1.b RGPD). Le formulaire ouvre votre messagerie : la demande nous parvient par e-mail et n'est stockée sur aucun serveur du site. Elle est conservée 3 ans après votre dernier contact, puis supprimée ; si vous devenez client, vos données sont conservées pendant la durée du contrat puis les durées légales (comptables et de garantie). Destinataires : MSOL uniquement ; aucune cession ni vente. Notre messagerie est fournie par Google, qui peut traiter ces données aux États-Unis ; ce transfert est encadré par le cadre de protection des données UE–États-Unis (Data Privacy Framework), auquel Google adhère. Vous disposez des droits d'accès, de rectification, d'effacement, de limitation, d'opposition et de portabilité, à exercer à Msol.said@gmail.com, et du droit d'introduire une réclamation auprès de la CNIL (www.cnil.fr).<br/>
+        <strong style="color:rgba(253,251,247,0.85);">Données personnelles (RGPD) :</strong> Responsable du traitement : MSOL, 7 Rue Victor Hugo, 92300 Levallois-Perret, Msol.said@gmail.com. Les informations du formulaire de devis (nom, téléphone, e-mail, prestation, surface, ville, message) servent uniquement à étudier votre projet et à vous répondre ; le nom, l'e-mail et la prestation sont nécessaires pour cela. Base légale : mesures précontractuelles prises à votre demande (art. 6.1.b RGPD). La demande nous est transmise par e-mail depuis le site et n'est enregistrée sur aucun serveur du site. Elle est conservée 3 ans après votre dernier contact, puis supprimée ; si vous devenez client, vos données sont conservées pendant la durée du contrat puis les durées légales (comptables et de garantie). Destinataires : MSOL uniquement ; aucune cession ni vente. Notre messagerie est fournie par Google, qui peut traiter ces données aux États-Unis ; ce transfert est encadré par le cadre de protection des données UE–États-Unis (Data Privacy Framework), auquel Google adhère. Vous disposez des droits d'accès, de rectification, d'effacement, de limitation, d'opposition et de portabilité, à exercer à Msol.said@gmail.com, et du droit d'introduire une réclamation auprès de la CNIL (www.cnil.fr).<br/>
         <strong style="color:rgba(253,251,247,0.85);">Cookies :</strong> Le site ne dépose aucun cookie sans votre accord. Si vous l'acceptez, Google Analytics (Google Ireland Ltd) dépose des cookies qui nous permettent de mesurer la fréquentation du site de façon statistique ; votre choix est conservé 6 mois. Vous pouvez le modifier à tout moment : <a href="#legal" data-cookies style="color:inherit; text-decoration:underline;">gérer les cookies</a>. Les polices de caractères sont hébergées sur le site lui-même.<br/>
         <strong style="color:rgba(253,251,247,0.85);">Propriété intellectuelle :</strong> L'ensemble du contenu (textes, photographies, identité visuelle) est la propriété de MSOL. Toute reproduction sans autorisation est interdite.
       </p>
@@ -1182,15 +1185,48 @@
   }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-  // Devis form → mailto fallback (no backend required)
-  function sendDevis(e) {
+  // Devis : envoi par devis.php ; si le serveur ne répond pas, repli sur la messagerie du visiteur.
+  const devisStart = Date.now();
+  async function sendDevis(e) {
     e.preventDefault();
     const f = e.target;
-    const get = n => (f.elements[n]?.value || '').trim();
-    const body = `Nom: ${get('nom')}%0D%0ATéléphone: ${get('telephone')}%0D%0AEmail: ${get('email')}%0D%0APrestation: ${get('prestation')}%0D%0ASurface: ${get('surface')}%0D%0AVille: ${get('ville')}%0D%0A%0D%0AMessage:%0D%0A${encodeURIComponent(get('message'))}`;
-    const subject = `Demande de devis — ${get('prestation') || 'MSOL'} (${get('nom')})`;
-    window.location.href = `mailto:Msol.said@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`;
+    const btn = f.querySelector('.submit-btn');
+    const status = document.getElementById('devisStatus');
+    btn.disabled = true;
+    status.textContent = 'Envoi en cours…';
+    try {
+      const data = new FormData(f);
+      data.append('t', devisStart);
+      const res = await fetch('/devis.php', { method: 'POST', body: data });
+      if (res.status === 404 || res.status >= 500) throw new Error(res.status);
+      let out;
+      try { out = await res.json(); } catch {
+        // Réponse illisible : la demande est peut-être partie, pas de repli pour éviter un doublon.
+        status.textContent = 'Nous ne pouvons pas confirmer l’envoi. Si vous n’avez pas de réponse sous 24 h, appelez-nous au 06 35 26 13 63.';
+        btn.disabled = false;
+        return false;
+      }
+      if (out.ok) {
+        f.reset();
+        status.textContent = 'Merci, votre demande est bien envoyée. Nous vous répondons sous 24 h.';
+        return false;
+      }
+      status.textContent = out.error;
+      btn.disabled = false;
+      return false;
+    } catch (err) {
+      status.textContent = 'L’envoi automatique n’a pas fonctionné : votre messagerie va s’ouvrir avec la demande prête à envoyer.';
+      btn.disabled = false;
+      mailtoDevis(f);
+    }
     return false;
+  }
+
+  function mailtoDevis(f) {
+    const get = n => (f.elements[n]?.value || '').trim();
+    const body = `Nom: ${get('nom')}\r\nTéléphone: ${get('telephone')}\r\nEmail: ${get('email')}\r\nPrestation: ${get('prestation')}\r\nSurface: ${get('surface')}\r\nVille: ${get('ville')}\r\n\r\nMessage:\r\n${get('message')}`;
+    const subject = `Demande de devis — ${get('prestation') || 'MSOL'} (${get('nom')})`;
+    window.location.href = `mailto:Msol.said@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   }
 
   // Hero subtle parallax — desktop only, rAF-throttled

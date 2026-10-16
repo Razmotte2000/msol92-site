@@ -37,6 +37,18 @@ consentement préalable, c'est une infraction CNIL. Polices auto-hébergées dan
 **Le bac à sable Cowork n'a pas d'accès réseau** : `git push` doit être lancé
 depuis un terminal Windows normal, pas depuis l'assistant.
 
+## Formulaire de devis
+
+`devis.php` envoie la demande avec `mail()` depuis **`contact@msol92.com`** vers
+`Msol.said@gmail.com`, avec l'adresse du visiteur en Reply-To (répondre au mail =
+écrire au client). Rien n'est enregistré, sauf une empreinte de l'IP pendant 10 min
+pour limiter à 3 envois par IP. Si `devis.php` ne répond pas (404, 5xx, réseau), la
+page ouvre la messagerie du visiteur avec la demande pré-remplie.
+
+**La boîte `contact@msol92.com` doit exister dans hPanel** (Emails), sinon Hostinger
+refuse ou Gmail classe en spam. Après chaque changement : faire un vrai essai et
+vérifier dans Gmail (« Afficher l'original ») que SPF et DKIM sont `PASS`.
+
 ## Comptes Google — tous sous `msol.said@gmail.com`
 
 | Service | Identifiant | Où |
