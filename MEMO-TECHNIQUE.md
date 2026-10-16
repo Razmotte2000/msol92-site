@@ -16,9 +16,12 @@ Aucun mot de passe ici : uniquement des identifiants publics ou semi-publics.
 Le `.htaccess` force en **une seule redirection 301** : HTTPS + non-www + `msol92.com`.
 Si `msol92.fr` est un jour repointé sur cet hébergement, il sera redirigé automatiquement.
 
-> À vérifier : les mentions légales en bas de `index.html` indiquent
-> « Domaine : msol92.com (enregistré chez OVH SAS) ». Si le `.com` est en réalité
-> chez Hostinger ou ailleurs, corriger — c'est une obligation LCEN.
+Registrar de msol92.com : Hostinger (vérifié par RDAP le 2026-10-16), mentionné ainsi
+dans les mentions légales.
+
+**Google Analytics ne se charge qu'après consentement** (`consent.js`, partagé par
+toutes les pages). Ne jamais remettre la balise gtag en dur dans un `<head>` : sans
+consentement préalable, c'est une infraction CNIL. Polices auto-hébergées dans `fonts/`.
 
 ## Hébergement et déploiement
 
@@ -105,7 +108,9 @@ un `sitemap.ts` ou un `robots.ts` n'y serait jamais exécuté. Les scripts
 
 1. dupliquer `blog/_template.html` en `blog/mon-article.html`, remplacer les `{{...}}`
 2. `node build-sitemap.mjs` — l'article entre dans le sitemap tout seul
-3. commit + push
+3. au premier article seulement : dans `blog/index.html`, repasser la balise
+   `robots` de `noindex, follow` à `index, follow` (le sitemap ajoute `/blog/` tout seul)
+4. commit + push
 
 ### Développement local
 

@@ -4,10 +4,11 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Blog · MSOL — Conseils & Expertise Parquet en Île-de-France</title>
-<meta name="description" content="Articles d'expert sur le parquet : pose, restauration, vitrification, choix des essences. MSOL, artisan parqueteur à Levallois-Perret depuis 1999." />
+<meta name="description" content="Articles d'expert sur le parquet : pose, restauration, vitrification, choix des essences. MSOL, artisan parqueteur à Levallois-Perret." />
 <meta name="keywords" content="blog parquet, conseils parquet, restauration parquet, pose parquet, vitrification, parquet Paris, parquet Île-de-France, MSOL" />
 <meta name="author" content="MSOL" />
-<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+<!-- noindex tant que le blog n'a aucun article : repasser en "index, follow" à la publication du premier. -->
+<meta name="robots" content="noindex, follow" />
 <link rel="canonical" href="https://msol92.com/blog/" />
 
 <!-- Open Graph -->
@@ -26,9 +27,7 @@
 
 <link rel="icon" type="image/png" href="../images/logo-msol.png" />
 <link rel="apple-touch-icon" href="../images/logo-msol.png" />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/fonts/fonts.css" />
 
 <!-- JSON-LD : Blog + Organization -->
 <script type="application/ld+json">
@@ -44,7 +43,7 @@
     "@id": "https://msol92.com/#organization",
     "name": "MSOL",
     "alternateName": "MSOL Artisan Parqueteur",
-    "description": "Artisan parqueteur d'exception en Île-de-France. Pose, restauration, vitrification de parquets sur-mesure depuis 1999.",
+    "description": "Artisan parqueteur d'exception en Île-de-France. Pose, restauration, vitrification de parquets sur-mesure.",
     "url": "https://msol92.com/",
     "logo": "https://msol92.com/images/logo-msol.png",
     "image": "https://msol92.com/images/logo-msol.png",
@@ -196,14 +195,8 @@
 
   footer { padding: 32px 0; text-align: center; font-size: 0.85rem; color: var(--ink-mute); }
 </style>
-<!-- Google tag (gtag.js) — GA4 G-9PF2ZZW311 -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-9PF2ZZW311"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-9PF2ZZW311');
-</script>
+<!-- Google Analytics : chargé seulement après consentement (consent.js) -->
+<script src="/consent.js" defer></script>
 </head>
 <body>
 

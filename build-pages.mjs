@@ -16,7 +16,6 @@ import { fileURLToPath } from 'node:url';
 import { SITE, BIZ, PAGES } from './content/pages.mjs';
 
 const ROOT = dirname(fileURLToPath(import.meta.url));
-const GA_ID = 'G-9PF2ZZW311';
 
 // Zones desservies, alignees sur le JSON-LD de l'accueil (entites Wikipedia
 // pour que les moteurs et les systemes d'IA relient la page a un lieu reel).
@@ -194,23 +193,15 @@ function render(page, others) {
 <meta name="twitter:title" content="${esc(page.metaTitle)}" />
 <meta name="twitter:description" content="${esc(page.metaDesc)}" />
 <meta name="twitter:image" content="${SITE}${BIZ.hero}" />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/fonts/fonts.css" />
 <style>
 ${STYLE}
 </style>
 <script type="application/ld+json">
 ${jsonld(page, others)}
 </script>
-<!-- Google tag (gtag.js) — GA4 ${GA_ID} -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=${GA_ID}"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', '${GA_ID}');
-</script>
+<!-- Google Analytics : chargé seulement après consentement (consent.js) -->
+<script src="/consent.js" defer></script>
 </head>
 <body>
 <!-- Page générée par build-pages.mjs — éditer content/pages.mjs, pas ce fichier. -->

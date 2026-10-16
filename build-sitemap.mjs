@@ -40,7 +40,6 @@ async function lastmod(relPath) {
 async function collect() {
   const pages = [
     { loc: `${SITE}/`, lastmod: await lastmod('index.html'), changefreq: 'weekly', priority: '1.0' },
-    { loc: `${SITE}/blog/`, lastmod: await lastmod('blog/index.html'), changefreq: 'weekly', priority: '0.8' },
   ];
 
   // Pages generees par build-pages.mjs (services, zones)
@@ -71,6 +70,10 @@ async function collect() {
       changefreq: 'monthly',
       priority: '0.7',
     });
+  }
+  // L'index du blog n'entre au sitemap qu'avec au moins un article (sinon page vide, en noindex).
+  if (pages.some((p) => p.loc.startsWith(`${SITE}/blog/`))) {
+    pages.splice(1, 0, { loc: `${SITE}/blog/`, lastmod: await lastmod('blog/index.html'), changefreq: 'weekly', priority: '0.8' });
   }
   return pages;
 }

@@ -139,9 +139,7 @@
   ]
 }
 </script>
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/fonts/fonts.css" />
 <style>
   /* ===== RESET ===== */
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -741,14 +739,8 @@
     border-bottom:1px solid transparent; transition:border-color .25s var(--ease); }
   .service-more:hover { border-bottom-color:var(--gold); }
 </style>
-<!-- Google tag (gtag.js) — GA4 G-9PF2ZZW311 -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-9PF2ZZW311"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-9PF2ZZW311');
-</script>
+<!-- Google Analytics : chargé seulement après consentement (consent.js) -->
+<script src="/consent.js" defer></script>
 </head>
 <body>
 
@@ -810,8 +802,8 @@
     <div class="stats-grid">
       <div class="stat-item reveal"><div class="num">25<span>+</span></div><div class="label">Années d'expertise</div></div>
       <div class="stat-item reveal"><div class="num">300<span>+</span></div><div class="label">Chantiers livrés</div></div>
-      <div class="stat-item reveal"><div class="num">4,9<span>★</span></div><div class="label">Note clients moyenne</div></div>
-      <div class="stat-item reveal"><div class="num">100<span>%</span></div><div class="label">Artisanat français</div></div>
+      <div class="stat-item reveal"><div class="num">5,0<span>★</span></div><div class="label">Note Google moyenne</div></div>
+      <div class="stat-item reveal"><div class="num">68</div><div class="label">Avis Google</div></div>
     </div>
   </div>
 </section>
@@ -914,12 +906,12 @@
       <div class="reveal">
         <span class="eyebrow">À propos</span>
         <h2 style="margin-top:24px;">Une passion,<br/>un héritage.</h2>
-        <p>Depuis plus de vingt-cinq ans, MSOL façonne les sols des plus belles demeures d'Île-de-France. Une exigence d'orfèvre, un respect profond de la matière, et une obsession : sublimer le bois.</p>
+        <p>Depuis plus de vingt-cinq ans, Saïd façonne les sols des plus belles demeures d'Île-de-France. Une exigence d'orfèvre, un respect profond de la matière, et une obsession : sublimer le bois.</p>
         <p>Chaque chantier est un dialogue entre l'artisan et l'essence — chêne, hêtre, noyer — pour révéler ce que la matière a de plus noble. Pas de raccourcis, pas de standardisation. Seulement le geste juste, transmis et perfectionné.</p>
         <div class="signature">
           <div>
             <div class="sig-name">Saïd</div>
-            <div class="sig-role">Maître artisan parqueteur</div>
+            <div class="sig-role">Artisan parqueteur</div>
           </div>
           <a href="https://www.youtube.com/@parqueteurmsol7296" target="_blank" rel="noopener" class="yt-link" aria-label="Chaîne YouTube MSOL">
             <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M23.5 6.2a3 3 0 00-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 00.5 6.2C0 8 0 12 0 12s0 4 .5 5.8a3 3 0 002.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 002.1-2.1C24 16 24 12 24 12s0-4-.5-5.8zM9.6 15.6V8.4l6.3 3.6-6.3 3.6z"/></svg>
@@ -952,6 +944,7 @@
             </div>
             <div style="font-size:0.85rem; color:var(--ink-mute); margin-top:8px; letter-spacing:0.08em;">Moyenne sur 68 avis Google</div>
             <a href="https://www.google.com/maps/place//data=!4m2!3m1!1s0x47e66f56110d241d:0x195a99f3754f362c" target="_blank" rel="noopener" style="display:inline-block; margin-top:12px; font-size:0.85rem; color:var(--gold); letter-spacing:0.04em;">Voir tous les avis sur Google →</a>
+            <div style="font-size:0.75rem; color:var(--ink-mute); margin-top:10px; max-width:40ch;">Note et nombre d’avis relevés sur notre fiche Google en septembre 2026. Les avis ci-dessous en sont des extraits choisis par MSOL ; ils ne font l’objet d’aucune procédure de vérification de notre part.</div>
           </div>
         </div>
       </div>
@@ -1069,6 +1062,7 @@
           <label for="f-message">Décrivez votre projet</label>
           <textarea id="f-message" name="message" rows="4" placeholder="Quelques mots sur votre besoin, l'état du sol, vos délais…"></textarea>
         </div>
+        <p style="font-size:0.75rem; color:var(--ink-mute); line-height:1.6; margin:4px 0 16px;">Vos informations servent uniquement à préparer votre devis. Responsable : MSOL. Base légale : mesures précontractuelles prises à votre demande. Conservation : 3 ans après votre dernier contact. Vous pouvez y accéder, les rectifier, les effacer, vous opposer à leur traitement ou demander leur portabilité en écrivant à Msol.said@gmail.com, et saisir la CNIL (cnil.fr). Le bouton ouvre votre messagerie : la demande part de votre adresse e-mail. <a href="#legal" style="color:inherit; text-decoration:underline;">En savoir plus</a></p>
         <button type="submit" class="submit-btn">Envoyer la demande <span class="arrow"><svg viewBox="0 0 12 12" width="12" height="12" stroke="currentColor" fill="none" stroke-width="1.5"><path d="M2 10 L10 2 M10 2 H4 M10 2 V8" stroke-linecap="round"/></svg></span></button>
       </form>
     </div>
@@ -1136,7 +1130,7 @@
       </div>
     </div>
     <div class="foot-bottom">
-      <div>© <span id="year"></span> MSOL — Tous droits réservés. · <a href="#legal" style="color:inherit;">Mentions légales</a></div>
+      <div>© <span id="year"></span> MSOL — Tous droits réservés. · <a href="#legal" style="color:inherit;">Mentions légales</a> · <a href="#legal" data-cookies style="color:inherit;">Gérer les cookies</a></div>
       <div>Conçu avec passion · Île-de-France</div>
     </div>
 
@@ -1145,8 +1139,9 @@
       <p style="color:rgba(253,251,247,0.6); max-width:80ch;">
         <strong style="color:rgba(253,251,247,0.85);">Éditeur :</strong> MSOL — SAS au capital de 7 000 € · <strong>Siège social :</strong> 7 Rue Victor Hugo, 92300 Levallois-Perret · <strong>Téléphone :</strong> 06 35 26 13 63 · <strong>Email :</strong> Msol.said@gmail.com<br/>
         <strong style="color:rgba(253,251,247,0.85);">SIRET :</strong> 847 961 620 00014 · <strong>SIREN :</strong> 847 961 620 · <strong>RCS Nanterre :</strong> 847 961 620 · <strong>TVA intracommunautaire :</strong> FR23847961620 · <strong>APE/NAF :</strong> 4333Z (Travaux de revêtement des sols et des murs)<br/>
-        <strong style="color:rgba(253,251,247,0.85);">Directeur de la publication :</strong> Hasna Maadarni (Présidente) · <strong>Hébergeur :</strong> Hostinger International Ltd, 61 Lordou Vironos Street, 6023 Larnaca, Chypre — hostinger.fr · <strong>Domaine :</strong> msol92.com (enregistré chez OVH SAS, 2 rue Kellermann, 59100 Roubaix)<br/><br/>
-        <strong style="color:rgba(253,251,247,0.85);">Données personnelles (RGPD) :</strong> Les informations saisies dans le formulaire de devis sont utilisées uniquement pour répondre à votre demande. Elles ne sont ni cédées ni vendues à des tiers. Vous disposez d'un droit d'accès, de rectification et de suppression de vos données en écrivant à Msol.said@gmail.com.<br/>
+        <strong style="color:rgba(253,251,247,0.85);">Directeur de la publication :</strong> Hasna Maadarni (Présidente) · <strong>Hébergeur :</strong> Hostinger International Ltd, 61 Lordou Vironos Street, 6023 Larnaca, Chypre — hostinger.fr · <strong>Domaine :</strong> msol92.com (enregistré chez Hostinger)<br/><br/>
+        <strong style="color:rgba(253,251,247,0.85);">Données personnelles (RGPD) :</strong> Responsable du traitement : MSOL, 7 Rue Victor Hugo, 92300 Levallois-Perret, Msol.said@gmail.com. Les informations du formulaire de devis (nom, téléphone, e-mail, prestation, surface, ville, message) servent uniquement à étudier votre projet et à vous répondre ; le nom, l'e-mail et la prestation sont nécessaires pour cela. Base légale : mesures précontractuelles prises à votre demande (art. 6.1.b RGPD). Le formulaire ouvre votre messagerie : la demande nous parvient par e-mail et n'est stockée sur aucun serveur du site. Elle est conservée 3 ans après votre dernier contact, puis supprimée ; si vous devenez client, vos données sont conservées pendant la durée du contrat puis les durées légales (comptables et de garantie). Destinataires : MSOL uniquement ; aucune cession ni vente. Notre messagerie est fournie par Google, qui peut traiter ces données aux États-Unis ; ce transfert est encadré par le cadre de protection des données UE–États-Unis (Data Privacy Framework), auquel Google adhère. Vous disposez des droits d'accès, de rectification, d'effacement, de limitation, d'opposition et de portabilité, à exercer à Msol.said@gmail.com, et du droit d'introduire une réclamation auprès de la CNIL (www.cnil.fr).<br/>
+        <strong style="color:rgba(253,251,247,0.85);">Cookies :</strong> Le site ne dépose aucun cookie sans votre accord. Si vous l'acceptez, Google Analytics (Google Ireland Ltd) dépose des cookies qui nous permettent de mesurer la fréquentation du site de façon statistique ; votre choix est conservé 6 mois. Vous pouvez le modifier à tout moment : <a href="#legal" data-cookies style="color:inherit; text-decoration:underline;">gérer les cookies</a>. Les polices de caractères sont hébergées sur le site lui-même.<br/>
         <strong style="color:rgba(253,251,247,0.85);">Propriété intellectuelle :</strong> L'ensemble du contenu (textes, photographies, identité visuelle) est la propriété de MSOL. Toute reproduction sans autorisation est interdite.
       </p>
     </div>
