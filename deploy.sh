@@ -13,7 +13,7 @@ git pull --ff-only origin main
 git log --oneline -1
 rsync -ai --delete $DRY \
   --filter='P google*.html' \
-  --exclude=.git/ --exclude=.gitignore --exclude=.claude/ --exclude=.vercelignore \
+  --exclude=.git/ --exclude=.gitignore --exclude=.gitattributes --exclude=.claude/ --exclude=CLAUDE.md --exclude=.vercelignore \
   --exclude=vercel.json --exclude=CNAME --exclude=README.md --exclude=MEMO-TECHNIQUE.md \
   --exclude='build-*.mjs' --exclude=content/ --exclude=deploy.sh --exclude=/blog/_template.html \
   ./ ~/domains/msol92.com/public_html/"
